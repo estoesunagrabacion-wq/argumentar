@@ -244,6 +244,58 @@ footer{max-width:1140px;margin:0 auto;padding:20px max(4vw,14px) 40px;color:var(
 .side.mkside{position:sticky;top:112px;z-index:3;gap:0}.mkside .panel{padding:10px;box-shadow:0 10px 18px -12px rgba(0,0,0,.45)}.mkside .pal{flex-wrap:nowrap;overflow-x:auto}.mkside .pal button{flex:none}.mkside .cntp,.mkside .panel h3,.mkside .panel p{display:none}}
 @media(max-width:600px){.hero{grid-template-columns:minmax(0,1fr)}.hero svg.big{max-width:380px;margin:0 auto;order:-1}.texto{font-size:17.5px}.qcard{padding:16px;border-radius:20px}.logo span{display:none}.pill .xpbar{display:none}.mhead .ic{width:52px;height:52px;border-radius:16px}.mhead .ic svg{width:30px;height:30px}.mods{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mod{min-height:0;padding:14px}.mod span{display:none}.mod b{font-size:18px}.mod .ic{width:44px;height:44px}.mod .ic svg{width:26px;height:26px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ===== gamificación ===== */
+.albtop{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.album{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:14px}
+.fig{position:relative;aspect-ratio:3/4;border-radius:16px;border:0;padding:10px 10px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff;background:linear-gradient(160deg,var(--fc),var(--fc2));box-shadow:0 5px 0 var(--fc2),inset 0 0 0 4px rgba(255,255,255,.35);transition:transform .12s;overflow:hidden}
+.fig:hover{transform:translateY(-3px) rotate(-1deg)}
+.fig .num{position:absolute;left:9px;top:7px;font:800 13px var(--sans);opacity:.85}
+.fig .art{flex:1;display:grid;place-items:center;width:100%}
+.fig .gart{width:62%;max-width:78px}
+.fig .jart{width:88%;border-radius:50%;background:rgba(255,255,255,.2)}
+.fig .fn{font:800 14px/1.15 var(--sans);text-wrap:balance}
+.fig .fs{font:600 10.5px var(--sans);opacity:.8;margin-top:3px}
+.fig.shiny::after{content:'';position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);animation:sheen 3s infinite}
+@keyframes sheen{from{transform:translateX(-60%)}to{transform:translateX(60%)}}
+.fig.lock{background:var(--paper);color:var(--mut);border:2.5px dashed var(--line);box-shadow:none;justify-content:center}
+.fig.lock .q{font:800 40px var(--sans);opacity:.35}
+.fig.lock .num{position:static;font-size:22px;opacity:.6}
+.dots{display:flex;gap:5px;margin-top:8px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--c)}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(20,16,30,.55);display:grid;place-items:center;padding:20px;animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.mbox{background:var(--paper);border-radius:28px;padding:24px;max-width:380px;width:100%;text-align:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);max-height:90vh;overflow:auto}
+.mbox .mt{font:800 24px var(--sans);margin:0 0 14px;color:var(--c)}
+.mbox .fig{width:180px;margin:0 auto;cursor:default}
+.flip{perspective:800px;animation:flip .8s cubic-bezier(.2,.8,.2,1.2)}
+@keyframes flip{from{transform:rotateY(180deg) scale(.4);opacity:0}to{transform:none;opacity:1}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);font-weight:700;padding:12px 18px;border-radius:14px;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);animation:fade .2s;max-width:90vw;text-align:center}
+.diahead{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:16px 20px}
+.rd{display:flex;flex-direction:column;align-items:center;background:var(--ct);border-radius:18px;padding:8px 18px}
+.rd .big{font:800 40px/1 var(--sans);color:var(--c)}
+.semana{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:12px;max-width:520px}
+.semana span{display:flex;flex-direction:column;align-items:center;gap:2px;font:700 12px var(--sans);color:var(--mut);background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:6px 0}
+.semana span i{width:22px;height:22px;display:block}.semana span i svg{width:22px;height:22px}
+.semana span.on{border-color:#f97316;color:var(--ink)}.semana span.hoy{outline:2px solid var(--c);outline-offset:1px}
+.code{display:inline-block;font:800 28px/1 ui-monospace,monospace;letter-spacing:.08em;background:var(--ct);color:var(--c2);padding:12px 18px;border-radius:14px;margin:6px 0 10px}
+.jgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.jcard{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;border:0;border-radius:24px;padding:18px;cursor:pointer;color:#fff;background:linear-gradient(165deg,var(--jc),var(--jc2));box-shadow:0 6px 0 var(--jc2);transition:transform .12s}
+.jcard:hover{transform:translateY(-3px)}
+.jcard svg{width:120px;height:120px;background:rgba(255,255,255,.18);border-radius:50%}
+.jcard b{font-size:21px}.jcard span{font-size:14px;opacity:.92}.jcard em{font-style:normal;font-weight:800;background:#fff;color:var(--jc2);border-radius:999px;padding:4px 14px;margin-top:4px}
+.arena{display:grid;gap:14px;max-width:760px}
+.boss{display:flex;gap:16px;align-items:center}
+.bav{flex:none;width:110px;height:110px;border-radius:50%;background:color-mix(in srgb,var(--jc) 22%,var(--paper));border:4px solid var(--jc);overflow:hidden}
+.bav svg{width:100%;height:100%}
+.bav.hurt{animation:shake .45s}.bav.laugh{animation:pop .5s}
+.bstat{flex:1}.bstat b{font-size:22px;display:block}
+.hp{height:18px;border-radius:10px;background:var(--ct);overflow:hidden;border:2px solid var(--line);margin-top:4px}
+.hp i{display:block;height:100%;background:linear-gradient(90deg,var(--jc),color-mix(in srgb,var(--jc) 60%,#fff));transition:width .5s}
+.bubble{position:relative;background:var(--paper);border:2px solid var(--jc);border-radius:20px;padding:12px 16px;font-weight:600;margin-left:30px}
+.bubble::before{content:'';position:absolute;left:-12px;top:-14px;width:22px;height:22px;background:var(--paper);border-left:2px solid var(--jc);border-top:2px solid var(--jc);transform:rotate(45deg) skew(10deg,10deg)}
+.you{display:flex;justify-content:flex-end;align-items:center;gap:10px}
+.hearts{display:flex;gap:4px}.hearts svg{width:28px;height:28px;fill:var(--line)}.hearts svg.on{fill:#e11d48}
+@media(max-width:600px){.album{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.fig .fn{font-size:12px}.fig .fs{display:none}.bav{width:84px;height:84px}}
+.mbox .small span{display:block;margin-top:8px;font-style:italic}
 </style></head><body>
 <header class="top"><div class="topin"><a class="logo" href="#inicio"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M4 9q0-5 5-5h16q5 0 5 5v10q0 5-5 5H14l-6 5 1.5-5H9q-5 0-5-5z" fill="#fff"/><path d="M19 7l-5 9h4l-3 8 8-10h-4l3-7z" fill="#ffe14d" stroke="#1d1a2b" stroke-width="1.3" stroke-linejoin="round"/></svg><span>Argumentar</span></a><div class="me" id="me"></div></div><nav class="rail" id="rail" aria-label="Módulos"></nav></header>
 <main id="app"></main>
@@ -861,7 +913,7 @@ const TEXTS={"arlt1": ["Me escribe un lector:", "\"Me interesaría muchísimo qu
 
 {
 const KEY='argumentar-arzruni-v1';
-const blank=()=>({r:{},best:{},marcas:{},est:{},resp:{},taller:{},checks:{},nombre:'',pol:{},xp:0,racha:0,rachaMax:0});
+const blank=()=>({r:{},best:{},marcas:{},est:{},resp:{},taller:{},checks:{},nombre:'',pol:{},xp:0,racha:0,rachaMax:0,hits:{},album:{},reps:0,diario:{},jefes:{}});
 let S=blank();
 try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(x)S=Object.assign(S,x)}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
@@ -881,7 +933,8 @@ lectura:'<path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12 7l5 5"/><path d="M3 22
 taller:'<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/><path d="M14 20h6"/>',
 polemica:'<path d="M3 5h11v8H8l-4 3v-3H3z"/><path d="M14 9h7v8h-1v3l-4-3h-5v-3"/>',
 desafio:'<path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/><path d="M12 14v4M8 21h8M9 18h6"/>',
-progreso:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'};
+progreso:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+album:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/><rect x="5.5" y="7" width="4" height="5" rx=".6"/><rect x="14.5" y="7" width="4" height="5" rx=".6"/><path d="M6 15h3M15 15h3"/>'};
 const FLAME='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 1.5-5 3-6 0 2 1 3.5 2.5 3.5C11 9 10 6 12 2z" fill="#ff9f1c" stroke="#fff" stroke-width="1.4"/><path d="M12 13c.6 2 3 3 3 5a3 3 0 0 1-6 0c0-1.5.8-2.5 1.8-3 .1 1 .6 1.6 1.2 1.6-.4-1.3-.3-2.4 0-3.6z" fill="#ffe14d"/></svg>';
 const STAR=on=>`<svg viewBox="0 0 24 24" class="${on?'on':''}" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" fill="${on?'#fbbf24':'var(--line)'}" stroke="${on?'#d97706':'var(--line)'}" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
 const CHECK=sv('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),CROSS=sv('<path d="M6 6l12 12M18 6L6 18"/>');
@@ -894,8 +947,9 @@ const MODS=[
 {h:'lectura',n:'Lectura anotada',c:'#16a34a',c2:'#15803d',d:'Leé, marcá la tesis y los argumentos, y compará con el profe.',ids:()=>LECTURAS.flatMap(l=>['est-'+l.id,'tes-'+l.id])},
 {h:'taller',n:'Taller de escritura',c:'#db2777',c2:'#be185d',d:'Notas, cartas, reseñas, publicidades y propuestas delirantes, paso a paso.',ids:null},
 {h:'polemica',n:'La polémica',c:'#dc2626',c2:'#b91c1c',d:'Argumentos contra argumentos, destinatarios y un debate en vivo.',ids:()=>[...POL_CUADRO.filas,...POL_PREG,...DEBATE].map(x=>x.id)},
-{h:'desafio',n:'Desafío final',c:'#ca8a04',c2:'#854d0e',d:'Quince preguntas mezcladas. Tres estrellas o nada.',ids:null},
-{h:'progreso',n:'Mi progreso',c:'#0891b2',c2:'#0e7490',d:'Tus puntos, tu racha y tus marcas por módulo.',ids:null}];
+{h:'desafio',n:'Desafíos',c:'#ca8a04',c2:'#854d0e',d:'El desafío del día, los jefes y el desafío final.',ids:null},
+{h:'album',n:'Álbum',c:'#0d9488',c2:'#0f766e',d:'Juntá las 38 figuritas: argumentos, falacias, textos y jefes.',ids:null},
+{h:'progreso',n:'Mi progreso',c:'#475569',c2:'#334155',d:'Tus puntos, tu racha y tus marcas por módulo.',ids:null}];
 const MOD=Object.fromEntries(MODS.map(m=>[m.h,m]));MOD.inicio={h:'inicio',n:'Inicio',c:'#7c3aed',c2:'#5b21b6'};
 const statOf=ids=>{let a=0,c=0;for(const i of ids)if(i in S.r){a++;c+=S.r[i]}return{a,c,t:ids.length}};
 const tallerCount=()=>TALLER.filter(t=>Object.values(S.taller[t.id]||{}).some(v=>v&&v.trim())).length;
@@ -921,12 +975,13 @@ function quiz(el,items,cfg){
     ${it.src?`<span class="src">${esc(it.src)}</span>`:''}
     ${cfg.pre?cfg.pre(it):''}${cfg.q(it)}
     ${cfg.ask?`<p class="qask">${esc(cfg.ask)}</p>`:''}
-    <div class="opts ${cfg.chips?'chips':''}">${opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o.l)}</button>`).join('')}</div><div class="after"></div></div>`;
+    <div class="opts ${cfg.chips?'chips':''}">${opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o.l)}</button>`).join('')}</div>${S.reps>0&&opts.length>2?`<button class="btn lnk comodin">Usar comodín 50/50 (te quedan ${S.reps})</button>`:''}<div class="after"></div></div>`;
+    const cm=$('.comodin',el);if(cm)cm.onclick=()=>{const wrong=shuf(opts.map((o,k)=>k).filter(k=>!cfg.isOk(it,opts[k].v)));wrong.slice(0,Math.floor(wrong.length/2)||1).forEach(k=>{const b=el.querySelector(`.opt[data-k="${k}"]`);b.disabled=true;b.style.visibility='hidden'});S.reps--;save();cm.remove()};
     el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
       const o=opts[+b.dataset.k],ok=cfg.isOk(it,o.v);
       el.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(cfg.isOk(it,opts[k].v))x.classList.add('ok')});
       if(!ok)b.classList.add('bad');
-      rec(it.id,ok,$('.qcard',el));if(ok)pts++;else wrong.push(it);
+      $('.comodin',el)?.remove();rec(it.id,ok,$('.qcard',el));if(ok){pts++;if(cfg.cat)hit(cfg.cat(it,o.v))}else wrong.push(it);
       const extra=cfg.extra?cfg.extra(it,o.v):'';
       $('.after',el).innerHTML=`<div class="fb ${ok?'':'bad'}"><span class="fi">${ok?CHECK:CROSS}</span><b>${ok?shuf(['¡Bien!','¡Exacto!','¡Eso!','¡Muy bien!'])[0]:'No es esa.'}</b><span>${extra}${esc(cfg.exp(it,o.v))}</span></div>
       <div class="row" style="margin-top:16px"><button class="btn nx">${i+1<N?'Siguiente':'Ver resultado'}</button></div>`;
@@ -934,8 +989,10 @@ function quiz(el,items,cfg){
     });
   };
   const end=()=>{
+    if(cfg.onEnd){cfg.onEnd(pts);return}
     const pct=Math.round(pts/N*100),st=pct>=90?3:pct>=70?2:pct>=40?1:0;
     if(cfg.key){S.best[cfg.key]=Math.max(S.best[cfg.key]||0,pct);save()}
+    checkTxt();
     el.innerHTML=`<div class="qcard result"><div class="stars">${[1,2,3].map(k=>STAR(k<=st)).join('')}</div><div class="score">${pts}/${N}</div>
     <p style="font-size:18px;font-weight:600">${pct>=90?'¡Impecable! Esto lo tenés dominado.':pct>=70?'Muy bien. Repasá las que fallaste.':pct>=40?'Vas bien, pero conviene repasar la teoría.':'Volvé a la ficha de teoría y probá otra vez.'}</p>
     ${cfg.key?`<p class="small">Tu mejor marca en esta actividad: ${S.best[cfg.key]} %</p>`:''}
@@ -965,7 +1022,8 @@ V.inicio=()=>{
   <div class="mods">${MODS.map(m=>{let p='',w=0;
     if(m.ids){const s=statOf(m.ids());w=s.t?s.a/s.t*100:0;p=`${s.a} de ${s.t}${s.a?` · ${Math.round(s.c/s.a*100)} % bien`:''}`}
     else if(m.h==='taller'){const n=tallerCount();w=n/TALLER.length*100;p=`${n} de ${TALLER.length} textos empezados`}
-    else if(m.h==='desafio'){w=S.best.desafio||0;p=S.best.desafio!=null?`Mejor marca: ${S.best.desafio} %`:'Sin jugar todavía'}
+    else if(m.h==='desafio'){const rd=rachaDias(),hd=!!S.diario[hoy()];w=hd?100:0;p=hd?`Hoy: ${S.diario[hoy()].p}/5 · racha de ${rd} día${rd===1?'':'s'}`:`¡Te espera el desafío de hoy!${rd?` Racha: ${rd}`:''}`}
+    else if(m.h==='album'){const g=Object.keys(S.album).length;w=g/ALB.length*100;p=`${g} de ${ALB.length} figuritas · ${S.reps} comodín${S.reps===1?'':'es'}`}
     else p=`Nivel ${L.n} · ${S.xp} pts`;
     return `<a class="mod ${m.dark?'dark':''}" href="#${m.h}" style="--mc:${m.c};--mc2:${m.c2}"><span class="ic">${sv(IC[m.h],m.dark?'#2a1f00':'#fff')}</span><b>${m.n}</b><span>${m.d}</span>${m.h!=='progreso'?`<div class="bar"><i style="width:${w}%"></i></div>`:''}<small>${p}</small></a>`}).join('')}</div>
   <p class="small" style="margin-top:24px">Tu progreso se guarda solo en este navegador. Si cambiás de celular o de computadora, empezás de cero.</p>`;
@@ -1004,7 +1062,7 @@ function inlineMC(el,it){
   el.innerHTML=`<div class="qcard"><p class="qask">${esc(it.q)}</p><div class="opts">${it.opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}</div><div class="after"></div></div>`;
   el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const k=+b.dataset.k,ok=k===it.ok;
     el.querySelectorAll('.opt').forEach((x,j)=>{x.disabled=true;if(j===it.ok)x.classList.add('ok')});if(!ok)b.classList.add('bad');
-    rec(it.id,ok,$('.qcard',el));$('.after',el).innerHTML=`<div class="fb ${ok?'':'bad'}"><span class="fi">${ok?CHECK:CROSS}</span><b>${ok?'¡Bien!':'No es esa.'}</b><span>${esc(it.exp)}</span></div>`});
+    rec(it.id,ok,$('.qcard',el));checkTxt();$('.after',el).innerHTML=`<div class="fb ${ok?'':'bad'}"><span class="fi">${ok?CHECK:CROSS}</span><b>${ok?'¡Bien!':'No es esa.'}</b><span>${esc(it.exp)}</span></div>`});
 }
 
 /* Argumentos */
@@ -1020,7 +1078,7 @@ V.argumentos=()=>{
   if(argTab==='tipos'){
     const pool=ARGS.filter(a=>argSrc==='todos'||(argSrc==='cuad'?a.src:!a.src));
     quiz(el,argSrc==='cuad'?pool:shuf(pool).slice(0,10),{key:'args-'+argSrc,chips:true,q:it=>`<p class="qtext">«${esc(it.t)}»</p>`,ask:'¿Qué tipo de argumento es?',
-      opts:()=>Object.entries(ARG_TIPOS).map(([v,l])=>({v,l})),isOk:(it,v)=>it.ok.includes(v),
+      opts:()=>Object.entries(ARG_TIPOS).map(([v,l])=>({v,l})),isOk:(it,v)=>it.ok.includes(v),cat:(it,v)=>'a:'+v,
       extra:it=>it.ok.length>1?`Respuestas válidas: ${it.ok.map(k=>ARG_TIPOS[k]).join(', ')}. `:'',exp:it=>it.exp,restart:V.argumentos});
   }else if(argTab==='conectores'){
     quiz(el,shuf(CONECTORES).slice(0,10),{key:'conectores',q:it=>`<p class="qtext">${esc(it.t).replace('___','<b style="display:inline-block;border-bottom:3px solid var(--c);width:5em"> </b>')}</p>`,ask:'¿Qué conector completa mejor la oración?',
@@ -1044,7 +1102,7 @@ V.falacias=()=>{
     opts:it=>{const v0=it.ok[0];const pool=shuf(Object.keys(FAL_TIPOS).filter(k=>!it.ok.includes(k)&&k!=='valida'));
       const list=v0==='valida'?['valida',...pool.slice(0,3)]:[v0,'valida',...pool.slice(0,2)];
       return shuf(list).map(v=>({v,l:FAL_TIPOS[v]}))},
-    isOk:(it,v)=>it.ok.includes(v),extra:it=>it.ok.length>1?`También vale: ${it.ok.slice(1).map(k=>FAL_TIPOS[k]).join(', ')}. `:'',exp:it=>it.exp,restart:V.falacias});
+    isOk:(it,v)=>it.ok.includes(v),cat:(it,v)=>v==='valida'?null:'f:'+v,extra:it=>it.ok.length>1?`También vale: ${it.ok.slice(1).map(k=>FAL_TIPOS[k]).join(', ')}. `:'',exp:it=>it.exp,restart:V.falacias});
 };
 
 /* Lectura */
@@ -1094,6 +1152,7 @@ V.lectura=()=>{
       ks.forEach(k=>{const p=M.querySelector(`.texto p[data-i="${k}"]`),good=L.est[k].includes(es[k]);if(good)ok++;p.classList.toggle('okp',good);p.classList.toggle('badp',!good);
         const sel=p.querySelector('.estsel');sel.querySelector('.sol')?.remove();if(!good)sel.insertAdjacentHTML('beforeend',`<span class="sol">→ ${esc(L.est[k].join(' o '))}</span>`)});
       const pct=Math.round(ok/ks.length*100);rec('est-'+L.id,pct>=80,null);S.best['est-'+L.id]=Math.max(S.best['est-'+L.id]||0,pct);save();
+      checkTxt();
       $('#eres').innerHTML=`<div class="stars" style="justify-content:flex-start">${[1,2,3].map(k=>STAR(k<=(pct>=90?3:pct>=70?2:pct>=40?1:0))).join('')}</div><div class="score" style="font-size:44px">${pct} %</div><p class="small">${ok} de ${ks.length} párrafos bien ubicados. Los de borde verde están bien; en los rojos aparece la respuesta esperada.</p>`};
   }else if(lecMode==='tesis'){
     lx.innerHTML=`<div id="tq1"></div><div id="tq2" style="margin-top:16px"></div>`;
@@ -1187,7 +1246,7 @@ V.polemica=()=>{
     $('#otro').oninput=e=>{S.pol.otro=e.target.value;save()};
     $('.corr').onclick=()=>{let ok=0;POL_CUADRO.filas.forEach(f=>{const d=el.querySelector(`[data-id="${f.id}"]`),v=st[f.id],g=v!==''&&v!=null&&f.ok.includes(+v);if(g)ok++;
       d.classList.toggle('okf',g);d.classList.toggle('badf',!g);rec(f.id,g,null);$('.res',d).textContent=g?(f.ok.length>1?'¡Bien! Otra respuesta también válida: '+POL_CUADRO.opciones[f.ok.find(x=>x!=+v)]:'¡Bien!'):'Respuesta esperada: '+POL_CUADRO.opciones[f.ok[0]]});
-      $('#cres').innerHTML=`<b>${ok} de ${POL_CUADRO.filas.length}</b>`};
+      $('#cres').innerHTML=`<b>${ok} de ${POL_CUADRO.filas.length}</b>`;checkTxt()};
   }else if(polTab==='dest'){
     quiz(el,POL_PREG,{key:'pol-dest',q:it=>`<p class="qtext">${esc(it.q)}</p>`,opts:mcOpts,isOk:(it,v)=>v===it.ok,exp:it=>it.exp,restart:V.polemica});
   }else if(polTab==='debate'){
@@ -1202,24 +1261,6 @@ V.polemica=()=>{
   }
 };
 
-/* Desafío */
-V.desafio=()=>{
-  M.innerHTML=`${head('desafio','Quince preguntas al azar de todos los módulos. Tu mejor marca se guarda.')}<div id="q"></div>`;
-  const pool=[...shuf(ARGS).slice(0,4).map(a=>({k:'arg',it:a})),...shuf(FALACIAS).slice(0,4).map(a=>({k:'fal',it:a})),...shuf(CONECTORES).slice(0,2).map(a=>({k:'con',it:a})),
-    ...shuf(GENEROS).slice(0,2).map(a=>({k:'gen',it:a})),...shuf(TEORIA).slice(0,2).map(t=>({k:'teo',it:Object.assign({id:t.id},t.prueba)})),...shuf(POL_PREG).slice(0,1).map(a=>({k:'teo',it:a}))];
-  const items=shuf(pool).map(p=>Object.assign({},p.it,{_k:p.k}));
-  const optsFor=it=>{
-    if(it._k==='arg'){const o=shuf(Object.keys(ARG_TIPOS).filter(k=>!it.ok.includes(k))).slice(0,3);return shuf([it.ok[0],...o]).map(v=>({v,l:ARG_TIPOS[v]}))}
-    if(it._k==='fal'){const o=shuf(Object.keys(FAL_TIPOS).filter(k=>!it.ok.includes(k))).slice(0,3);return shuf([it.ok[0],...o]).map(v=>({v,l:FAL_TIPOS[v]}))}
-    if(it._k==='gen'){const o=shuf(GENEROS_OPC.filter(k=>k!==it.ok)).slice(0,3);return shuf([it.ok,...o]).map(v=>({v,l:v}))}
-    return shuf(it.opts.map((l,k)=>({l,v:k})))};
-  const cache=new Map();
-  quiz($('#q'),items,{key:'desafio',
-    q:it=>it._k==='teo'?`<p class="qask">${esc(it.q)}</p>`:it._k==='con'?`<p class="qask">¿Qué conector completa la oración?</p><p class="qtext">${esc(it.t).replace('___','<b style="display:inline-block;border-bottom:3px solid var(--c);width:5em"> </b>')}</p>`:`<p class="qask">${it._k==='arg'?'¿Qué tipo de argumento es?':it._k==='fal'?'¿Qué problema tiene este argumento?':'¿Qué tipo de texto es?'}</p><p class="qtext">«${esc(it.t)}»</p>`,
-    opts:it=>{if(!cache.has(it))cache.set(it,optsFor(it));return cache.get(it)},
-    isOk:(it,v)=>it._k==='arg'||it._k==='fal'?it.ok.includes(v):v===it.ok,exp:it=>it.exp,restart:V.desafio});
-};
-
 /* Progreso */
 V.progreso=()=>{
   const L=nivel(),rows=MODS.filter(m=>m.ids).map(m=>({m,...statOf(m.ids())}));
@@ -1228,12 +1269,270 @@ V.progreso=()=>{
   <div class="lvl" style="margin:0 0 26px"><span class="badge">${L.n}</span><b>${esc(L.nom)} · ${S.xp} pts</b><div><div class="bar"><i style="width:${L.pct}%;background:linear-gradient(90deg,#7c3aed,#db2777)"></i></div><span class="small">Racha actual: ${S.racha} · Mejor racha: ${S.rachaMax}${L.sig?` · Te faltan ${L.falta} puntos para ${esc(L.sig)}`:''}</span></div></div>
   <div class="stats">${rows.map(r=>`<div class="stat" style="--mc:${r.m.c}"><span class="dot">${sv(IC[r.m.h],r.m.dark?'#2a1f00':'#fff')}</span><b><a href="#${r.m.h}" style="color:inherit;text-decoration:none">${esc(r.m.n)}</a></b><span class="n">${r.a?Math.round(r.c/r.a*100)+' %':'—'}</span><div class="bar"><i style="width:${r.t?r.a/r.t*100:0}%"></i></div><span></span></div>`).join('')}
   <div class="stat" style="--mc:${MOD.taller.c}"><span class="dot">${sv(IC.taller)}</span><b><a href="#taller" style="color:inherit;text-decoration:none">Taller de escritura</a></b><span class="n">${tallerCount()}/${TALLER.length}</span><div class="bar"><i style="width:${tallerCount()/TALLER.length*100}%"></i></div></div></div>
+  <div class="stats" style="margin-top:12px"><div class="simple"><span>Figuritas del álbum</span><b>${Object.keys(S.album).length}/${ALB.length}</b></div><div class="simple"><span>Racha de días con desafío</span><b>${rachaDias()}</b></div><div class="simple"><span>Jefes vencidos</span><b>${Object.keys(S.jefes).length}/${JEFES.length}</b></div></div>
   <h3 style="margin-top:30px">Mejores marcas</h3>${bests.length?`<div class="stats">${bests.map(([k,l])=>`<div class="simple"><span>${esc(l)}</span><b>${S.best[k]} %</b></div>`).join('')}</div>`:'<p class="empty">Todavía no completaste ninguna ronda.</p>'}
   <h3 style="margin-top:30px">Estructura de los textos</h3><div class="stats">${LECTURAS.filter(l=>S.best['est-'+l.id]!=null).map(l=>`<div class="simple"><span>${esc(l.titulo)}</span><b>${S.best['est-'+l.id]} %</b></div>`).join('')||'<p class="empty">Todavía no corregiste ninguna estructura.</p>'}</div>
   <div class="row" style="margin-top:30px"><button class="btn cp">Copiar resumen para el profe</button><span class="small cpm"></span><button class="btn lnk rst">Reiniciar todo mi progreso</button></div>`;
-  $('.cp').onclick=()=>copy(`Argumentar — ${S.nombre||'(sin nombre)'}\nNivel ${L.n} (${L.nom}) · ${S.xp} puntos · mejor racha ${S.rachaMax}\n`+rows.map(r=>`${r.m.n}: ${r.a}/${r.t} respondidas, ${r.c} bien`).join('\n')+'\n'+bests.map(([k,l])=>`${l}: ${S.best[k]} %`).join('\n'),$('.cpm'));
+  $('.cp').onclick=()=>copy(`Argumentar — ${S.nombre||'(sin nombre)'}\nNivel ${L.n} (${L.nom}) · ${S.xp} puntos · mejor racha ${S.rachaMax}\nFiguritas: ${Object.keys(S.album).length}/${ALB.length} · Jefes vencidos: ${Object.keys(S.jefes).length}/${JEFES.length} · Días seguidos: ${rachaDias()}\n`+rows.map(r=>`${r.m.n}: ${r.a}/${r.t} respondidas, ${r.c} bien`).join('\n')+'\n'+bests.map(([k,l])=>`${l}: ${S.best[k]} %`).join('\n'),$('.cpm'));
   const r=$('.rst');r.onclick=()=>confirmIn(r,'Se borran puntos, marcas y textos. ¿Seguro?',()=>{const n=S.nombre;S=blank();S.nombre=n;save();meBar();V.progreso()});
 };
+
+/* ================= GAMIFICACIÓN: álbum, jefes, desafío del día ================= */
+S.hits=S.hits||{};S.album=S.album||{};S.reps=S.reps||0;S.diario=S.diario||{};S.jefes=S.jefes||{};
+
+/* ---- dibujos de las figuritas (viewBox 0 0 48 48, trazo blanco) ---- */
+const G={
+cita:'<path d="M10 30c0-9 4-15 11-17M27 30c0-9 4-15 11-17"/><circle cx="14" cy="31" r="5" fill="#fff"/><circle cx="31" cy="31" r="5" fill="#fff"/>',
+gen:'<circle cx="12" cy="18" r="5"/><circle cx="24" cy="18" r="5"/><circle cx="36" cy="18" r="5"/><path d="M6 32h36M6 38h36"/>',
+con:'<path d="M6 26l9-8 8 6 8-6 11 8"/><path d="M15 18l8 14 4-4 5 6"/><path d="M6 26l4 12M42 26l-4 12"/>',
+ref:'<path d="M8 10h32v22H22l-9 8v-8H8z"/><path d="M18 15l12 12M30 15L18 27"/>',
+ej:'<path d="M24 42s-12-12-12-21a12 12 0 0 1 24 0c0 9-12 21-12 21z"/><circle cx="24" cy="21" r="4.5" fill="#fff"/>',
+preg:'<path d="M16 17a8 8 0 1 1 11 7.5c-2 1-3 2.5-3 5V32"/><circle cx="24" cy="39" r="2.4" fill="#fff"/>',
+ana:'<path d="M8 18c4-5 8-5 12 0s8 5 12 0 6-4 8-2"/><path d="M8 30c4-5 8-5 12 0s8 5 12 0 6-4 8-2"/>',
+acu:'<rect x="10" y="32" width="28" height="8" rx="2"/><rect x="13" y="22" width="22" height="8" rx="2"/><rect x="16" y="12" width="16" height="8" rx="2"/>',
+dat:'<path d="M8 40h32"/><rect x="11" y="26" width="6" height="12" rx="1" fill="#fff"/><rect x="21" y="16" width="6" height="22" rx="1" fill="#fff"/><rect x="31" y="9" width="6" height="29" rx="1" fill="#fff"/>',
+baculum:'<path d="M14 40L30 14"/><path d="M27 10c4-3 10-1 11 4s-3 8-7 8c-3 0-6-3-5-6"/><path d="M33 13l2 2M30 18l2 1"/>',
+hom:'<circle cx="24" cy="22" r="11"/><path d="M24 6v8M24 30v8M8 22h8M32 22h8"/><circle cx="24" cy="22" r="3" fill="#fff"/>',
+circ:'<circle cx="20" cy="16" r="7"/><path d="M8 40c1-9 6-14 12-14s11 5 12 14"/><path d="M33 22h9v8h-9z"/><path d="M35 22v-2h5v2"/>',
+tuq:'<path d="M6 18h22M22 12l6 6-6 6"/><path d="M42 30H20M26 24l-6 6 6 6"/>',
+ign:'<rect x="10" y="10" width="28" height="28" rx="4" stroke-dasharray="4 4"/><path d="M20 20a4.5 4.5 0 1 1 6 4c-1.3.6-2 1.4-2 3"/><circle cx="24" cy="32" r="1.6" fill="#fff"/>',
+pop:'<circle cx="12" cy="20" r="5"/><circle cx="24" cy="16" r="6"/><circle cx="36" cy="20" r="5"/><path d="M4 38c1-7 4-10 8-10M14 40c1-9 5-14 10-14s9 5 10 14M44 38c-1-7-4-10-8-10"/>',
+ver:'<path d="M8 34l4-20 8 10 4-14 4 14 8-10 4 20z"/><path d="M8 40h32"/>',
+mis:'<path d="M24 8s-11 14-11 22a11 11 0 0 0 22 0c0-8-11-22-11-22z"/><path d="M19 31a5 5 0 0 0 5 5"/>',
+causa:'<circle cx="18" cy="18" r="6"/><circle cx="30" cy="18" r="6"/><circle cx="18" cy="30" r="6"/><circle cx="30" cy="30" r="6"/><path d="M28 36l8 6"/>',
+comp:'<path d="M28 8v18a8 8 0 1 1-16 0v-3"/><path d="M12 23l-3 4M12 23l4 3"/><path d="M28 8h-4"/>',
+peti:'<path d="M38 24a14 14 0 1 1-4-10"/><path d="M36 6v9h-9"/>',
+dilema:'<path d="M24 42V26M24 26L12 10M24 26l12-16"/><path d="M8 12l4-2 2 4M40 12l-4-2-2 4"/>',
+paja:'<circle cx="24" cy="13" r="5"/><path d="M15 9h18"/><path d="M24 18v14M12 24h24M24 32l-6 10M24 32l6 10"/><path d="M12 24l-3 3M36 24l3 3"/>',
+pend:'<path d="M6 14l36 24H6z"/><circle cx="14" cy="13" r="5" fill="#fff"/><path d="M22 18l4 2M28 22l4 2"/>',
+apre:'<circle cx="11" cy="24" r="2.5" fill="#fff"/><path d="M15 24h8M20 20l4 4-4 4"/><circle cx="34" cy="24" r="9"/>',
+irrel:'<circle cx="18" cy="26" r="12"/><circle cx="18" cy="26" r="6"/><path d="M30 14l12-6M38 8h4v4"/>',
+arlt1:'<rect x="8" y="22" width="32" height="16" rx="3"/><path d="M14 22V12h20v10"/><path d="M13 28h2M19 28h2M25 28h2M31 28h2M16 33h16"/>',
+arlt2:'<path d="M14 18a10 10 0 0 1 20 0v10a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8z"/><path d="M14 24h8M18 36v6h12v-6"/>',
+caparros1:'<rect x="6" y="10" width="36" height="24" rx="2"/><path d="M12 18h14M12 24h20"/><path d="M16 34l-4 8M32 34l4 8"/>',
+caparros2:'<path d="M10 34c0-12 8-20 18-20 6 0 10 4 10 10v10"/><path d="M38 26c4 0 6 4 4 8"/><path d="M16 34v6M24 34v6M32 34v6"/><path d="M14 26c-4 2-6 8-2 12"/>',
+batlle:'<rect x="8" y="20" width="32" height="20" rx="2"/><path d="M8 20l4-10 30 4-2 6"/><path d="M16 11l2 8M24 12l2 8M32 13l2 7"/>',
+forn:'<path d="M4 30c6-8 12-8 18 0s12 8 18 0"/><path d="M4 38c6-8 12-8 18 0s12 8 18 0"/><path d="M12 22c2-8 10-12 16-10-6 2-8 6-6 10"/>',
+swift:'<path d="M16 8v12a4 4 0 0 1-8 0V8M12 8v32"/><path d="M34 8c-4 2-6 8-6 14h6v18"/>',
+podetti:'<circle cx="24" cy="10" r="5"/><path d="M14 18h20l-4 10v14h-4v-8h-4v8h-4V28z"/><path d="M14 18l-6 8M34 18l6 8"/>',
+polemica:'<path d="M24 8v32M14 40h20M10 14h28"/><path d="M10 14l-6 12h12zM38 14l-6 12h12z"/>'};
+
+/* ---- jefes (personajes inventados) ---- */
+const SKIN='#f2c29b';
+const JEFES=[
+{id:'sofista',n:'El Sofista',c:'#7c3aed',c2:'#5b21b6',lema:'«Gano cualquier discusión. Que tenga razón es otro tema.»',
+ art:`<circle cx="60" cy="62" r="30" fill="${SKIN}"/><path d="M34 66c0 22 12 36 26 36s26-14 26-36c-6 8-14 10-26 10s-20-2-26-10z" fill="#fff"/><path d="M30 46c4-18 52-18 60 0" fill="none" stroke="#16a34a" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 9"/><path d="M44 54l10 3M66 57l10-3" stroke="#1d1a2b" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="63" r="3.5" fill="#1d1a2b"/><circle cx="70" cy="63" r="3.5" fill="#1d1a2b"/><path d="M52 80q8 5 16 0" stroke="#1d1a2b" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 120c4-16 16-22 32-22s28 6 32 22" fill="#e9e3f8"/><path d="M60 98l-14 22M60 98l18 22" stroke="#c4b5fd" stroke-width="4"/>`,
+ intro:'Bienvenido a mi ágora. Te voy a demostrar que lo negro es blanco… o lo que me convenga.',
+ golpe:['¡Mmm! Detectaste mi truco…','Bah, era un razonamiento menor.','¿Quién te enseñó eso? ¿Aristóteles?','Mi credibilidad… se resquebraja.'],
+ falla:['¡Ja! Caíste en mi trampa.','Elocuencia: 1. Vos: 0.','Así se gana un debate, querido.'],
+ gana:'Imposible… ¿Me venció un estudiante de tercer año?',pierde:'Volvé cuando hayas estudiado las falacias.',
+ lineas:[
+ {t:'Nadie pudo probar que estoy equivocado; por lo tanto, tengo razón.',ok:['ign']},
+ {t:'Si no aceptás mis argumentos, voy a tener que bajarte la nota.',ok:['baculum']},
+ {t:'¿Ya dejaste de creerte más inteligente que tu maestro?',ok:['comp']},
+ {t:'La verdad es verdadera porque es la verdad.',ok:['peti']},
+ {t:'Mi rival no puede tener razón: tiene la nariz torcida y habla con la boca llena.',ok:['hom']},
+ {t:'Desde que llegué a Atenas no llovió más. Evidentemente, traigo el buen tiempo.',ok:['causa']},
+ {t:'Todos en el ágora piensan como yo. ¿Quién sos vos para dudarlo?',ok:['pop']},
+ {t:'Tengo que ganar este debate: soy muy buen cocinero y tengo una túnica preciosa.',ok:['irrel']},
+ {t:'Pobrecito de mí, si pierdo hoy no voy a poder pagar el alquiler del ágora. Dame la razón.',ok:['mis']}]},
+{id:'influencer',n:'El Influencer',c:'#db2777',c2:'#be185d',lema:'«Si tiene muchos likes, es verdad.»',
+ art:`<circle cx="60" cy="62" r="30" fill="${SKIN}"/><path d="M30 54c0-20 60-20 60 0z" fill="#db2777"/><path d="M84 52h18" stroke="#db2777" stroke-width="8" stroke-linecap="round"/><rect x="38" y="58" width="19" height="11" rx="4" fill="#1d1a2b"/><rect x="63" y="58" width="19" height="11" rx="4" fill="#1d1a2b"/><path d="M57 62h6" stroke="#1d1a2b" stroke-width="3"/><path d="M48 80q12 9 24 0" fill="#fff" stroke="#1d1a2b" stroke-width="3"/><path d="M26 120c4-16 16-22 34-22s30 6 34 22" fill="#f9a8d4"/><rect x="82" y="84" width="16" height="28" rx="3" fill="#1d1a2b" transform="rotate(12 90 98)"/><circle cx="92" cy="80" r="9" fill="none" stroke="#fde047" stroke-width="3"/>`,
+ intro:'¡Hola, mi gente! Hoy les voy a vender… digo, contar algo increíble.',
+ golpe:['¡Ey! ¡Eso es hate!','Ok, ok, borro ese video.','Me estás bajando el engagement…','¡Me están dejando de seguir!'],
+ falla:['¡Like y suscribite!','Tres millones de personas no pueden estar equivocadas.','Usá mi código de descuento, crack.'],
+ gana:'Me quedé sin seguidores… Me voy a hacer un detox digital.',pierde:'Seguime para más contenido de calidad.',
+ lineas:[
+ {t:'Esta crema funciona: la usan tres millones de mis seguidores.',ok:['pop']},
+ {t:'Lo dice mi amigo el futbolista: este suplemento te hace más inteligente.',ok:['ver']},
+ {t:'O comprás mi curso o vas a fracasar toda la vida.',ok:['dilema']},
+ {t:'Los que dicen que miento son todos envidiosos y feos.',ok:['hom']},
+ {t:'Llevo tres días sin dormir haciendo contenido para ustedes. Porfa, denle like y compren.',ok:['mis']},
+ {t:'Desde que tomo este jugo verde me va bien en todo. Es mágico.',ok:['causa']},
+ {t:'Nadie demostró que mis gotitas no curen la ansiedad, así que funcionan.',ok:['ign']},
+ {t:'¿Esa streamer me critica por vender cosas? ¡Si ella también hace publicidad!',ok:['tuq']},
+ {t:'Según la Sociedad Argentina de Pediatría, los chicos necesitan dormir bien. Por eso hoy hablo de rutinas de sueño.',ok:['valida']}]},
+{id:'tio',n:'El Tío del asado',c:'#ea580c',c2:'#c2410c',lema:'«Yo no discuto. Te explico cómo son las cosas.»',
+ art:`<circle cx="60" cy="62" r="30" fill="${SKIN}"/><path d="M34 52c2-16 14-22 26-22s24 6 26 22c-6-6-10-6-14-4-4-6-20-6-24 0-4-2-8-2-14 4z" fill="#78350f"/><circle cx="50" cy="62" r="3.5" fill="#1d1a2b"/><circle cx="70" cy="62" r="3.5" fill="#1d1a2b"/><path d="M42 54l12 2M66 56l12-2" stroke="#1d1a2b" stroke-width="4" stroke-linecap="round"/><path d="M44 76q16-10 32 0q-16 4-32 0z" fill="#78350f"/><path d="M52 84q8 4 16 0" stroke="#1d1a2b" stroke-width="3" fill="none"/><path d="M26 120c4-16 16-22 34-22s30 6 34 22" fill="#fff"/><path d="M48 100h24v20H48z" fill="#ea580c"/><path d="M92 120l8-40M98 120l8-40" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>`,
+ intro:'Vení, sentate, pasame la ensalada. Te explico cómo funciona el mundo.',
+ golpe:['Bueno, bueno… no te pongas así.','¿Y eso dónde lo aprendiste? ¿En el colegio?','Pasame el vino que esto se complica.','Che, el pibe sabe…'],
+ falla:['¡Viste que tengo razón!','Escuchá a los grandes, nene.','Te lo digo yo, que tengo calle.'],
+ gana:'Está bien, está bien… Sacá vos la carne de la parrilla.',pierde:'Cuando seas grande vas a entender.',
+ lineas:[
+ {t:'Los jóvenes de hoy no quieren trabajar: mi sobrino durmió hasta las doce el domingo.',ok:['apre']},
+ {t:'¿Que hay que comer menos carne? ¡Ah, o sea que querés que todos comamos pasto!',ok:['paja']},
+ {t:'O sos de mi club o no entendés nada de fútbol.',ok:['dilema']},
+ {t:'Si dejás a los chicos usar el celular en la mesa, después no se hablan más, después se van de casa y al final la familia se destruye.',ok:['pend']},
+ {t:'Al que no le guste mi chimichurri no lo invito más.',ok:['baculum']},
+ {t:'Vos qué vas a hablar de política, si tenés quince años.',ok:['circ']},
+ {t:'¿Todavía seguís haciéndole caso a tus profesores?',ok:['comp']},
+ {t:'El asado es lo mejor porque no hay nada mejor que el asado.',ok:['peti']},
+ {t:'Mi abuelo fumaba dos atados por día y llegó a los noventa. Así que no jodan con el cigarrillo.',ok:['apre']}]},
+{id:'troll',n:'La Troll del grupo',c:'#16a34a',c2:'#15803d',lema:'«Era un chiste. No seas sensible.»',
+ art:`<path d="M24 120V70a36 36 0 0 1 72 0v50z" fill="#334155"/><circle cx="60" cy="68" r="24" fill="#bbf7d0"/><path d="M42 60l10 4M68 64l10-4" stroke="#1d1a2b" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="69" r="3" fill="#1d1a2b"/><circle cx="70" cy="69" r="3" fill="#1d1a2b"/><path d="M48 80q12 8 24-2" stroke="#1d1a2b" stroke-width="3.5" fill="none" stroke-linecap="round"/><rect x="40" y="100" width="40" height="22" rx="4" fill="#22c55e"/><path d="M48 108h24M48 114h14" stroke="#fff" stroke-width="3" stroke-linecap="round"/>`,
+ intro:'Jajaja, ¿qué hacés acá? Bancame un toque que estoy armando un meme de vos.',
+ golpe:['Ok, sacaste captura. Qué denso.','¿Me estás escrachando? ¡Qué falta de respeto!','Borro el mensaje, ¿contento?','Me silenciaron del grupo…'],
+ falla:['JAJAJA te la creíste.','Era un chiste, amigo.','Otro meme para la colección.'],
+ gana:'Bueno… perdón. Me voy a pensar un rato.',pierde:'Jaja, sos re lento. Volvé cuando sepas.',
+ lineas:[
+ {t:'No le crean a Martina sobre el bullying: es una llorona.',ok:['hom']},
+ {t:'¿Vos me decís que no insulte? ¡Si vos también contestás mal!',ok:['tuq']},
+ {t:'Si no me pasan la tarea, subo las fotos del viaje.',ok:['baculum']},
+ {t:'Todo el grupo se rió del meme, así que no es para tanto.',ok:['pop']},
+ {t:'O te reís del chiste o sos un aburrido.',ok:['dilema']},
+ {t:'Si dejamos de hacer memes de la gente, después no se va a poder hacer ningún chiste y al final vamos a vivir en una dictadura.',ok:['pend']},
+ {t:'—No está bien escrachar a la gente. —Ah, o sea que querés que no se pueda decir nada.',ok:['paja']},
+ {t:'Claro que el delegado está contra los memes: a él lo escracharon.',ok:['circ']},
+ {t:'Una vez una chica denunció acoso y era mentira: todas las denuncias son mentira.',ok:['apre']}]}];
+
+/* ---- catálogo del álbum ---- */
+const TXT_ALB=[['arlt1','La inutilidad de los libros'],['arlt2','El idioma de los argentinos'],['caparros1','Lucha de clases en la escuela pública'],['caparros2','Contra el cambio'],['batlle','Una mitología moderna'],['forn','Que sea este'],['swift','Una modesta proposición'],['podetti','Carta abierta al tipo ese de la tele'],['polemica','La polémica']];
+const ALB=[
+ ...Object.entries(ARG_TIPOS).map(([k,n])=>({key:'a:'+k,sec:'Argumentos',n,ic:k,c:'#2563eb',c2:'#1d4ed8',def:TEORIA[1].html.split('<dt>'+n)[1]?.split('</dd>')[0]})),
+ ...Object.entries(FAL_TIPOS).filter(([k])=>k!=='valida').map(([k,n])=>({key:'f:'+k,sec:'Falacias',n,ic:k,c:'#f97316',c2:'#c2410c',def:null})),
+ ...TXT_ALB.map(([k,n])=>({key:'t:'+k,sec:'Textos del cuadernillo',n,ic:k,c:'#16a34a',c2:'#15803d'})),
+ ...JEFES.map(j=>({key:'j:'+j.id,sec:'Jefes',n:j.n,jefe:j,c:j.c,c2:j.c2}))];
+ALB.forEach((a,i)=>a.num=i+1);
+const FAL_DEF=(()=>{const h=TEORIA.find(t=>t.id==='t10').html,o={};const names={baculum:'Ad baculum',hom:'Ad hominem ofensivo',circ:'Ad hominem circunstancial',tuq:'Tu quoque',ign:'Ad ignorantiam',pop:'Ad populum',ver:'Ad verecundiam',mis:'Ad misericordiam',causa:'Causa falsa',comp:'Pregunta compleja',peti:'Petición de principio',dilema:'Falso dilema',paja:'Hombre de paja',pend:'Pendiente resbaladiza',apre:'Generalización apresurada',irrel:'Conclusión irrelevante'};
+  for(const [k,n] of Object.entries(names)){const p=h.split('<dt>'+n)[1];if(p)o[k]=p.split('</dd>')[0].replace(/^[^<]*<\/dt><dd>/,'')}return o})();
+ALB.forEach(a=>{if(a.key.startsWith('f:'))a.def=FAL_DEF[a.ic];if(a.def)a.def=a.def.replace(/^[^<]*<\/dt><dd>/,'')});
+const NEED=3;
+const txtReq=k=>k==='polemica'?'Aprobá «Destinatarios y recursos» o el cuadro de la polémica.':'Acertá la tesis o sacá 70 % o más en la estructura de este texto.';
+
+function cardHTML(a,opts={}){
+  const got=S.album[a.key];
+  if(!got&&!opts.reveal){const h=S.hits[a.key]||0,prog=(a.key[0]==='a'||a.key[0]==='f')?`<span class="dots">${[0,1,2].map(i=>`<i class="${i<h?'on':''}"></i>`).join('')}</span>`:'';
+    return `<button class="fig lock" data-k="${a.key}" aria-label="Figurita ${a.num} sin conseguir"><span class="num">${a.num}</span><span class="q">?</span>${prog}</button>`}
+  const art=a.jefe?`<svg viewBox="0 0 120 120" class="jart">${a.jefe.art}</svg>`:`<svg viewBox="0 0 48 48" class="gart" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${G[a.ic]||''}</svg>`;
+  return `<button class="fig ${a.jefe?'shiny':''}" data-k="${a.key}" style="--fc:${a.c};--fc2:${a.c2}"><span class="num">${a.num}</span><span class="art">${art}</span><span class="fn">${esc(a.n)}</span><span class="fs">${esc(a.sec)}</span></button>`;
+}
+function popFig(key){
+  const a=ALB.find(x=>x.key===key);if(!a)return;
+  const d=document.createElement('div');d.className='modal';
+  d.innerHTML=`<div class="mbox"><p class="mt">¡Figurita nueva!</p><div class="flip">${cardHTML(a,{reveal:1})}</div><p class="small">${S.album?Object.keys(S.album).length:0} de ${ALB.length} en tu álbum</p><div class="row" style="justify-content:center"><button class="btn sec cl">Seguir</button><a class="btn" href="#album">Ver el álbum</a></div></div>`;
+  document.body.appendChild(d);const close=()=>d.remove();$('.cl',d).onclick=close;$('a',d).onclick=close;d.onclick=e=>{if(e.target===d)close()};$('.cl',d).focus();
+}
+function unlock(key){if(S.album[key])return;S.album[key]=1;S.xp+=25;save();meBar();setTimeout(()=>popFig(key),350)}
+function hit(key){
+  if(!key)return;const n=(S.hits[key]=(S.hits[key]||0)+1);
+  if(n===NEED)unlock(key);else if(n>NEED&&(n-NEED)%NEED===0){S.reps++;toast('¡Figurita repetida! Ganaste un comodín 50/50.')}
+  save();
+}
+function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+function checkTxt(){
+  for(const [k] of TXT_ALB){
+    if(k==='polemica'){if((S.best['pol-dest']||0)>=70||POL_CUADRO.filas.filter(f=>S.r[f.id]===1).length>=4)unlock('t:polemica');continue}
+    if(S.r['tes-'+k]===1||(S.best['est-'+k]||0)>=70)unlock('t:'+k)}
+}
+
+/* ---- álbum ---- */
+V.album=()=>{
+  checkTxt();
+  const got=Object.keys(S.album).length,secs=[...new Set(ALB.map(a=>a.sec))];
+  M.innerHTML=`${head('album','')}
+  <div class="albtop"><div><div class="score" style="font-size:56px">${got}<span style="font-size:26px;color:var(--mut)">/${ALB.length}</span></div><div class="bar" style="width:min(320px,70vw);height:14px;background:var(--ct)"><i style="width:${got/ALB.length*100}%"></i></div></div>
+  <div class="panel" style="max-width:420px"><b>Cómo se consiguen</b><p class="small" style="margin:4px 0 0">Argumentos y falacias: acertá ${NEED} veces ese tipo, en cualquier módulo. Textos: acertá la tesis o la estructura. Jefes: vencelos. Cada ${NEED} aciertos más de una figurita que ya tenés te dan una <b>repetida</b>, que vale un comodín 50/50. Tenés <b>${S.reps}</b>.</p></div></div>
+  ${secs.map(s=>{const L=ALB.filter(a=>a.sec===s);return `<h3 style="margin:28px 0 12px">${esc(s)} <span class="small">${L.filter(a=>S.album[a.key]).length}/${L.length}</span></h3><div class="album">${L.map(a=>cardHTML(a)).join('')}</div>`}).join('')}`;
+  M.querySelectorAll('.fig').forEach(b=>b.onclick=()=>{const a=ALB.find(x=>x.key===b.dataset.k),has=S.album[a.key];
+    const d=document.createElement('div');d.className='modal';
+    d.innerHTML=`<div class="mbox">${has?`<div class="flip" style="animation:none">${cardHTML(a)}</div><h3 style="margin-top:14px">${esc(a.n)}</h3>${a.def?`<div class="small" style="text-align:left">${a.def}</div>`:a.jefe?`<p class="small">${esc(a.jefe.lema)}</p>`:''}`:
+      `<p class="mt">Figurita ${a.num}</p><p>${a.key[0]==='a'||a.key[0]==='f'?`Es un tipo de ${a.key[0]==='a'?'argumento':'falacia'}. Llevás ${S.hits[a.key]||0} de ${NEED} aciertos.`:a.key[0]==='t'?txtReq(a.ic):'Vencé a este jefe en Desafíos.'}</p>`}
+      <div class="row" style="justify-content:center;margin-top:12px"><button class="btn cl">Cerrar</button></div></div>`;
+    document.body.appendChild(d);$('.cl',d).onclick=()=>d.remove();d.onclick=e=>{if(e.target===d)d.remove()}});
+};
+
+/* ---- generador con semilla (para el desafío del día) ---- */
+const hashS=s=>{let h=1779033703^s.length;for(let i=0;i<s.length;i++){h=Math.imul(h^s.charCodeAt(i),3432918353);h=h<<13|h>>>19}return h>>>0};
+const rng=seed=>()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+const sshuf=(a,r)=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const hoy=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/Argentina/Buenos_Aires'}).format(new Date());
+const diaMas=(d,n)=>{const x=new Date(d+'T12:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10)};
+function rachaDias(){let d=hoy(),n=0;if(!S.diario[d])d=diaMas(d,-1);while(S.diario[d]){n++;d=diaMas(d,-1)}return n}
+const codigo=(nom,d,p)=>{const h=hashS(norm(nom||'anon').trim()+'|'+d+'|'+p).toString(36).toUpperCase();return h.slice(-4).padStart(4,'X')};
+
+/* opciones y enunciados compartidos por desafíos */
+function mixItem(kind,it,r){
+  const R=r||Math.random;const sh=a=>r?sshuf(a,r):shuf(a);
+  if(kind==='arg'){const o=sh(Object.keys(ARG_TIPOS).filter(k=>!it.ok.includes(k))).slice(0,3);return sh([it.ok[0],...o]).map(v=>({v,l:ARG_TIPOS[v]}))}
+  if(kind==='fal'){const o=sh(Object.keys(FAL_TIPOS).filter(k=>!it.ok.includes(k))).slice(0,3);return sh([it.ok[0],...o]).map(v=>({v,l:FAL_TIPOS[v]}))}
+  if(kind==='gen'){const o=sh(GENEROS_OPC.filter(k=>k!==it.ok)).slice(0,3);return sh([it.ok,...o]).map(v=>({v,l:v}))}
+  return sh(it.opts.map((l,k)=>({l,v:k})));
+}
+const qMix=it=>it._k==='teo'?`<p class="qask">${esc(it.q)}</p>`:it._k==='con'?`<p class="qask">¿Qué conector completa la oración?</p><p class="qtext">${esc(it.t).replace('___','<b style="display:inline-block;border-bottom:3px solid var(--c);width:5em"> </b>')}</p>`:`<p class="qask">${it._k==='arg'?'¿Qué tipo de argumento es?':it._k==='fal'?'¿Qué problema tiene este argumento?':'¿Qué tipo de texto es?'}</p><p class="qtext">«${esc(it.t)}»</p>`;
+const okMix=(it,v)=>it._k==='arg'||it._k==='fal'?it.ok.includes(v):v===it.ok;
+const catMix=(it,v)=>it._k==='arg'?'a:'+v:it._k==='fal'&&v!=='valida'?'f:'+v:null;
+
+/* ---- desafíos: del día, jefes, final ---- */
+let desTab='dia';
+V.desafio=()=>{
+  M.innerHTML=`${head('desafio','')}${tabs([['dia','Desafío del día'],['jefes','Jefes'],['final','Desafío final']],desTab)}<div id="q"></div>`;
+  M.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{desTab=b.dataset.t;V.desafio()});
+  ({dia:dDia,jefes:dJefes,final:dFinal})[desTab]($('#q'));
+};
+function dDia(el){
+  const d=hoy(),done=S.diario[d],racha=rachaDias();
+  const semana=[...Array(7)].map((_,i)=>diaMas(d,i-6));
+  const dn=x=>['do','lu','ma','mi','ju','vi','sá'][new Date(x+'T12:00:00Z').getUTCDay()];
+  const strip=`<div class="semana">${semana.map(x=>`<span class="${S.diario[x]?'on':''} ${x===d?'hoy':''}"><i>${S.diario[x]?FLAME:''}</i>${dn(x)}</span>`).join('')}</div>`;
+  const header=`<div class="diahead"><div><p class="kick" style="color:var(--c);font-weight:700;margin:0">${new Intl.DateTimeFormat('es-AR',{weekday:'long',day:'numeric',month:'long',timeZone:'America/Argentina/Buenos_Aires'}).format(new Date())}</p>
+    <h3 style="margin:2px 0 4px">Cinco preguntas, las mismas para todo el curso</h3><p class="small" style="margin:0">Un intento por día. Completarlo suma 30 puntos extra y alarga tu racha de días.</p></div>
+    <div class="rd"><span class="big">${racha}</span><span class="small">día${racha===1?'':'s'} seguido${racha===1?'':'s'}</span></div></div>${strip}`;
+  if(done){el.innerHTML=`${header}<div class="qcard result" style="margin-top:18px"><div class="stars">${[1,2,3].map(k=>STAR(k<=(done.p>=5?3:done.p>=4?2:done.p>=2?1:0))).join('')}</div><div class="score">${done.p}/5</div>
+    <p style="font-weight:600">Ya jugaste el desafío de hoy. Mañana hay otro.</p><p class="small">Para comparar con tus compañeros, mostrá este código:</p><div class="code">${done.p}/5 · ${codigo(S.nombre,d,done.p)}</div>
+    ${S.nombre?'':'<p class="small">Escribí tu nombre en el inicio para que el código sea tuyo.</p>'}</div>`;return}
+  const r=rng(hashS('argumentar|'+d));
+  const pool=[...sshuf(ARGS,r).slice(0,2).map(a=>({_k:'arg',...a})),...sshuf(FALACIAS,r).slice(0,2).map(a=>({_k:'fal',...a})),
+    ...sshuf([...CONECTORES.map(a=>({_k:'con',...a})),...GENEROS.map(a=>({_k:'gen',...a}))],r).slice(0,1)];
+  const items=sshuf(pool,r),opts=new Map(items.map(it=>[it,mixItem(it._k,it,r)]));
+  el.innerHTML=header+'<div id="dq" style="margin-top:18px"></div>';
+  quiz($('#dq'),items,{key:null,daily:1,q:qMix,opts:it=>opts.get(it),isOk:okMix,cat:catMix,exp:it=>it.exp,
+    onEnd:p=>{S.diario[d]={p};S.xp+=30;save();meBar();setTimeout(()=>dDia(el),50)},restart:()=>dDia(el)});
+}
+function dFinal(el){
+  el.insertAdjacentHTML('beforebegin','<p class="lead">Quince preguntas al azar de todos los módulos. Tu mejor marca se guarda.</p>');
+  const pool=[...shuf(ARGS).slice(0,4).map(a=>({_k:'arg',...a})),...shuf(FALACIAS).slice(0,4).map(a=>({_k:'fal',...a})),...shuf(CONECTORES).slice(0,2).map(a=>({_k:'con',...a})),
+    ...shuf(GENEROS).slice(0,2).map(a=>({_k:'gen',...a})),...shuf(TEORIA).slice(0,2).map(t=>({_k:'teo',id:t.id,...t.prueba})),...shuf(POL_PREG).slice(0,1).map(a=>({_k:'teo',...a}))];
+  const items=shuf(pool),opts=new Map(items.map(it=>[it,mixItem(it._k,it)]));
+  quiz(el,items,{key:'desafio',q:qMix,opts:it=>opts.get(it),isOk:okMix,cat:catMix,exp:it=>it.exp,restart:V.desafio});
+}
+function dJefes(el){
+  el.innerHTML=`<p class="lead">Cada jefe te discute con falacias. Detectá cuál usa: cada acierto le baja la credibilidad; cada error te cuesta un corazón. Tenés tres. Si lo vencés, va a tu álbum.</p>
+  <div class="jgrid">${JEFES.map(j=>{const w=S.jefes[j.id];return `<button class="jcard" data-id="${j.id}" style="--jc:${j.c};--jc2:${j.c2}"><svg viewBox="0 0 120 120">${j.art}</svg><b>${esc(j.n)}</b><span>${esc(j.lema)}</span><em>${w?'Vencido · revancha':'¡A pelear!'}</em></button>`}).join('')}</div>`;
+  el.querySelectorAll('.jcard').forEach(b=>b.onclick=()=>pelea(el,JEFES.find(j=>j.id===b.dataset.id)));
+}
+function pelea(el,J){
+  const HP=5;let hp=HP,vidas=3,lines=shuf(J.lineas),i=0,dicho=J.intro,estado='juega';
+  const R=document.documentElement.style;R.setProperty('--c',J.c);R.setProperty('--c2',J.c2);R.setProperty('--ct',`color-mix(in srgb, ${J.c} 12%, var(--paper))`);
+  const draw=(fb)=>{
+    const it=lines[i%lines.length];
+    const pool=shuf(Object.keys(FAL_TIPOS).filter(k=>!it.ok.includes(k)&&k!=='valida'));
+    const opts=it.ok[0]==='valida'?shuf(['valida',...pool.slice(0,3)]):shuf([it.ok[0],'valida',...pool.slice(0,2)]);
+    el.innerHTML=`<button class="btn lnk volver">← Todos los jefes</button>
+    <div class="arena" style="--jc:${J.c}">
+      <div class="boss"><div class="bav ${fb==='hit'?'hurt':fb==='miss'?'laugh':''}"><svg viewBox="0 0 120 120">${J.art}</svg></div>
+        <div class="bstat"><b>${esc(J.n)}</b><span class="small">Credibilidad</span><div class="hp"><i style="width:${hp/HP*100}%"></i></div></div></div>
+      <div class="bubble">${esc(dicho)}</div>
+      <div class="you"><span class="small" style="font-weight:700">Vos</span><span class="hearts">${[0,1,2].map(k=>`<svg viewBox="0 0 24 24" class="${k<vidas?'on':''}"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z"/></svg>`).join('')}</span></div>
+      ${estado==='juega'?`<div class="qcard"><p class="qask">${esc(J.n)} dice:</p><p class="qtext">«${esc(it.t)}»</p><p class="qask">¿Qué falacia usa?</p>
+        <div class="opts">${opts.map(v=>`<button class="opt" data-v="${v}">${esc(FAL_TIPOS[v])}</button>`).join('')}</div></div>`:
+      `<div class="qcard result"><div class="score" style="font-size:44px">${estado==='gano'?'¡Ganaste!':'Perdiste'}</div><p>${estado==='gano'?`+50 puntos${S.album['j:'+J.id]?'':' y una figurita nueva'}.`:'Repasá las falacias y volvé a intentarlo.'}</p>
+        <div class="row"><button class="btn otra">Revancha</button><button class="btn sec volver2">Otros jefes</button></div></div>`}
+    </div>`;
+    $('.volver',el).onclick=()=>{route()};
+    if(estado!=='juega'){$('.otra',el).onclick=()=>pelea(el,J);$('.volver2',el).onclick=()=>route();return}
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      const v=b.dataset.v,ok=it.ok.includes(v);
+      el.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(it.ok.includes(x.dataset.v))x.classList.add('ok')});if(!ok)b.classList.add('bad');
+      S.racha=ok?S.racha+1:0;S.rachaMax=Math.max(S.rachaMax,S.racha);if(ok&&v!=='valida')hit('f:'+v);save();meBar();
+      setTimeout(()=>{i++;
+        if(ok){hp--;dicho=hp?shuf(J.golpe)[0]:J.gana}else{vidas--;dicho=vidas?shuf(J.falla)[0]+' (Era: '+it.ok.map(k=>FAL_TIPOS[k]).join(' / ')+'.)':J.pierde}
+        if(!hp){estado='gano';S.jefes[J.id]=(S.jefes[J.id]||0)+1;S.xp+=50;save();meBar();unlock('j:'+J.id)}
+        else if(!vidas)estado='perdio';
+        draw(ok?'hit':'miss')},700);
+    });
+  };
+  draw();
+}
 
 /* instalación */
 let deferred=null;
