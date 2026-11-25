@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" href="icons/favicon-32.png"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Argumentar"><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
 <style>/*
 VOICE: a game for 15-year-olds that happens to teach rhetoric: energetic, friendly, never babyish.
 IDEA: a debate arena / quiz game — each module is a "world" with its own colour, you earn points, streaks and levels.
@@ -296,10 +296,52 @@ footer{max-width:1140px;margin:0 auto;padding:20px max(4vw,14px) 40px;color:var(
 .hearts{display:flex;gap:4px}.hearts svg{width:28px;height:28px;fill:var(--line)}.hearts svg.on{fill:#e11d48}
 @media(max-width:600px){.album{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.fig .fn{font-size:12px}.fig .fs{display:none}.bav{width:84px;height:84px}}
 .mbox .small span{display:block;margin-top:8px;font-style:italic}
+/* ===== accesibilidad ===== */
+main{zoom:var(--z,1)}
+.accb{border:0;color:#fff;cursor:pointer;font-family:var(--sans);padding:5px 12px!important;min-height:32px}
+:root.facil{--serif:'Atkinson Hyperlegible',Verdana,sans-serif;--sans:'Atkinson Hyperlegible',Verdana,sans-serif}
+:root.facil body{letter-spacing:.02em;word-spacing:.08em}
+:root.facil .texto,:root.facil .qtext,:root.facil .ficha{line-height:1.9;letter-spacing:.03em}
+.spk{min-height:40px;padding:7px 14px;font-size:14.5px;margin:0 0 14px}
+.spk.mini{margin:-6px 0 14px}
+.leyendo{background:color-mix(in srgb,var(--hl) 55%,transparent);border-radius:6px;box-shadow:0 0 0 4px color-mix(in srgb,var(--hl) 55%,transparent)}
+:root[data-theme=dark] .leyendo{color:#1a1a1a}
+/* ===== entrega ===== */
+.entrega{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:2px dashed var(--line)}
+/* ===== profe ===== */
+.fl{display:block;font-weight:700;font-size:14.5px;margin:10px 0 0}
+.fl input{display:block;width:100%;margin-top:4px;border:2px solid var(--line);background:var(--bg);border-radius:10px;padding:9px 12px;font-size:16px;font-weight:400}
+.nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0 12px}
+.impreso{display:grid;gap:24px}
+.impreso .pag{background:#fff;color:#000;font:11.5pt/1.45 'Literata',Georgia,serif;padding:18mm 16mm;max-width:210mm;box-shadow:0 10px 30px -14px rgba(0,0,0,.35);border:1px solid #ddd}
+.impreso header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1.5pt solid #000;padding-bottom:6px;margin-bottom:10px}
+.impreso header b{display:block;font:700 15pt/1.2 'Rubik',sans-serif}
+.impreso header span{font:9.5pt 'Rubik',sans-serif}
+.impreso .vers{border:1pt solid #000;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.impreso .datos{font:10.5pt 'Rubik',sans-serif;margin:0 0 12px}
+.impreso h4{font:700 11.5pt/1.3 'Rubik',sans-serif;margin:14px 0 4px;color:#000}
+.impreso .banco{font:italic 9.5pt/1.35 'Rubik',sans-serif;border:1pt solid #000;padding:5px 8px;margin:4px 0 8px}
+.impreso ol.it{padding-left:22px;margin:0}
+.impreso ol.it li{margin-bottom:9px;break-inside:avoid}
+.impreso ol.it p{margin:0}
+.impreso .linea{margin-top:4px!important;font:10.5pt 'Rubik',sans-serif}
+.impreso .ops{margin-top:3px!important;font:10.5pt 'Rubik',sans-serif}
+.impreso .cl2{columns:2;column-gap:12mm;font:10.5pt/1.5 'Rubik',sans-serif;padding-left:22px}
+.impreso .cl2 li{break-inside:avoid}
+.impreso .small{color:#333}
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff!important;zoom:1}
+  .top,footer,.noprint,.modal,.toast{display:none!important}
+  main{padding:0!important;max-width:none!important;zoom:1}
+  .impreso{display:block}
+  .impreso .pag{box-shadow:none;border:0;max-width:none;page-break-after:always}
+  .impreso .pag.clave{page-break-before:always}
+}
 </style></head><body>
 <header class="top"><div class="topin"><a class="logo" href="#inicio"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M4 9q0-5 5-5h16q5 0 5 5v10q0 5-5 5H14l-6 5 1.5-5H9q-5 0-5-5z" fill="#fff"/><path d="M19 7l-5 9h4l-3 8 8-10h-4l3-7z" fill="#ffe14d" stroke="#1d1a2b" stroke-width="1.3" stroke-linejoin="round"/></svg><span>Argumentar</span></a><div class="me" id="me"></div></div><nav class="rail" id="rail" aria-label="Módulos"></nav></header>
 <main id="app"></main>
-<footer>Material de práctica basado en el cuadernillo «El texto argumentativo», Prácticas del Lenguaje, 3.er año, Colegio Armenio Arzruni. Uso exclusivo para la clase.</footer>
+<footer>Material de práctica basado en el cuadernillo «El texto argumentativo», Prácticas del Lenguaje, 3.er año, Colegio Armenio Arzruni. Uso exclusivo para la clase. · <a href="#profe">Para el profe</a></footer>
 <script>const ARG_TIPOS={cita:'Cita de autoridad',gen:'Generalización',con:'Concesión',ref:'Refutación',ej:'Ejemplificación',preg:'Pregunta retórica',ana:'Analogía',acu:'Acumulación',dat:'Datos y cifras'};
 
 const TEORIA=[
@@ -934,6 +976,7 @@ taller:'<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/
 polemica:'<path d="M3 5h11v8H8l-4 3v-3H3z"/><path d="M14 9h7v8h-1v3l-4-3h-5v-3"/>',
 desafio:'<path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/><path d="M12 14v4M8 21h8M9 18h6"/>',
 progreso:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+profe:'<path d="M8 4h8v3H8z"/><path d="M16 5h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2"/><path d="M9 12h6M9 16h4"/>',
 album:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/><rect x="5.5" y="7" width="4" height="5" rx=".6"/><rect x="14.5" y="7" width="4" height="5" rx=".6"/><path d="M6 15h3M15 15h3"/>'};
 const FLAME='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 1.5-5 3-6 0 2 1 3.5 2.5 3.5C11 9 10 6 12 2z" fill="#ff9f1c" stroke="#fff" stroke-width="1.4"/><path d="M12 13c.6 2 3 3 3 5a3 3 0 0 1-6 0c0-1.5.8-2.5 1.8-3 .1 1 .6 1.6 1.2 1.6-.4-1.3-.3-2.4 0-3.6z" fill="#ffe14d"/></svg>';
 const STAR=on=>`<svg viewBox="0 0 24 24" class="${on?'on':''}" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" fill="${on?'#fbbf24':'var(--line)'}" stroke="${on?'#d97706':'var(--line)'}" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
@@ -950,14 +993,14 @@ const MODS=[
 {h:'desafio',n:'Desafíos',c:'#ca8a04',c2:'#854d0e',d:'El desafío del día, los jefes y el desafío final.',ids:null},
 {h:'album',n:'Álbum',c:'#0d9488',c2:'#0f766e',d:'Juntá las 38 figuritas: argumentos, falacias, textos y jefes.',ids:null},
 {h:'progreso',n:'Mi progreso',c:'#475569',c2:'#334155',d:'Tus puntos, tu racha y tus marcas por módulo.',ids:null}];
-const MOD=Object.fromEntries(MODS.map(m=>[m.h,m]));MOD.inicio={h:'inicio',n:'Inicio',c:'#7c3aed',c2:'#5b21b6'};
+const MOD=Object.fromEntries(MODS.map(m=>[m.h,m]));MOD.inicio={h:'inicio',n:'Inicio',c:'#7c3aed',c2:'#5b21b6'};MOD.profe={h:'profe',n:'Para el profe',c:'#334155',c2:'#1e293b'};
 const statOf=ids=>{let a=0,c=0;for(const i of ids)if(i in S.r){a++;c+=S.r[i]}return{a,c,t:ids.length}};
 const tallerCount=()=>TALLER.filter(t=>Object.values(S.taller[t.id]||{}).some(v=>v&&v.trim())).length;
 
 /* ---------- puntos, racha, niveles ---------- */
 const NIV=[[0,'Aprendiz'],[100,'Opinador'],[250,'Argumentador'],[450,'Polemista'],[700,'Orador'],[1000,'Retórico'],[1400,'Maestro de la persuasión']];
 const nivel=()=>{let i=0;while(i+1<NIV.length&&S.xp>=NIV[i+1][0])i++;const lo=NIV[i][0],hi=NIV[i+1]?NIV[i+1][0]:lo;return{n:i+1,nom:NIV[i][1],pct:hi>lo?(S.xp-lo)/(hi-lo)*100:100,falta:hi>lo?hi-S.xp:0,sig:NIV[i+1]?.[1]}};
-function meBar(){const L=nivel();$('#me').innerHTML=`<span class="pill" title="Racha de respuestas correctas seguidas">${FLAME}${S.racha}</span><span class="pill" title="${esc(L.nom)}">Nivel ${L.n}<span class="xpbar"><i style="width:${L.pct}%"></i></span><span>· ${S.xp} pts</span></span>`}
+function meBar(){const L=nivel();$('#me').innerHTML=`<span class="pill" title="Racha de respuestas correctas seguidas">${FLAME}${S.racha}</span><span class="pill" title="${esc(L.nom)}">Nivel ${L.n}<span class="xpbar"><i style="width:${L.pct}%"></i></span><span>· ${S.xp} pts</span></span><button class="pill accb" title="Tamaño de letra y lectura en voz alta" aria-label="Opciones de lectura">Aa</button>`;$('.accb').onclick=panelAcc}
 function rec(id,ok,host){
   const first=!(id in S.r);if(first)S.r[id]=ok?1:0;
   S.racha=ok?S.racha+1:0;S.rachaMax=Math.max(S.rachaMax,S.racha);
@@ -969,13 +1012,14 @@ function rec(id,ok,host){
 function quiz(el,items,cfg){
   let i=0,pts=0,wrong=[];const N=items.length;
   const show=()=>{
-    if(i>=N)return end();
+    callar();if(i>=N)return end();
     const it=items[i],opts=cfg.opts(it);
     el.innerHTML=`<div class="qcard"><div class="qtop"><span class="cnt">${i+1}/${N}</span><div class="prog"><i style="width:${i/N*100}%"></i></div><span class="combo">${S.racha>=2?FLAME+S.racha:''}</span></div>
     ${it.src?`<span class="src">${esc(it.src)}</span>`:''}
     ${cfg.pre?cfg.pre(it):''}${cfg.q(it)}
     ${cfg.ask?`<p class="qask">${esc(cfg.ask)}</p>`:''}
     <div class="opts ${cfg.chips?'chips':''}">${opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o.l)}</button>`).join('')}</div>${S.reps>0&&opts.length>2?`<button class="btn lnk comodin">Usar comodín 50/50 (te quedan ${S.reps})</button>`:''}<div class="after"></div></div>`;
+    {const op=$('.opts',el),sb=spkBtn(()=>[...el.querySelectorAll('.qtext,.dice,.qask')].map(x=>({t:x.textContent})).concat(opts.map((o,k)=>({t:'Opción '+(k+1)+': '+o.l}))),'mini');op.before(sb)}
     const cm=$('.comodin',el);if(cm)cm.onclick=()=>{const wrong=shuf(opts.map((o,k)=>k).filter(k=>!cfg.isOk(it,opts[k].v)));wrong.slice(0,Math.floor(wrong.length/2)||1).forEach(k=>{const b=el.querySelector(`.opt[data-k="${k}"]`);b.disabled=true;b.style.visibility='hidden'});S.reps--;save();cm.remove()};
     el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
       const o=opts[+b.dataset.k],ok=cfg.isOk(it,o.v);
@@ -1017,7 +1061,7 @@ V.inicio=()=>{
   <div class="row"><a class="btn" href="#teoria">Empezar</a><a class="btn sec" href="#desafio">Ir al desafío</a></div>
   <div class="lvl"><span class="badge">${L.n}</span><b>${esc(L.nom)} · ${S.xp} pts</b><div><div class="bar"><i style="width:${L.pct}%;background:linear-gradient(90deg,#7c3aed,#db2777)"></i></div><span class="small">${L.sig?`Te faltan ${L.falta} puntos para ser ${esc(L.sig)}.`:'Llegaste al nivel máximo.'} Mejor racha: ${S.rachaMax}.</span></div></div>
   <div id="inst" class="row" style="margin-top:14px"></div>
-  <div class="who"><label for="nom" class="small">Tu nombre (opcional):</label><input id="nom" value="${esc(S.nombre)}" placeholder="Nombre y apellido" autocomplete="name"></div>
+  <div class="who"><label for="nom" class="small">Tu nombre y curso (para entregarle trabajos al profe):</label><input id="nom" value="${esc(S.nombre)}" placeholder="Nombre y apellido" autocomplete="name"><input id="cur" value="${esc(S.curso||'')}" placeholder="Curso (ej.: 3.º A)" style="width:150px"></div>
   </div>${heroSVG()}</section>
   <div class="mods">${MODS.map(m=>{let p='',w=0;
     if(m.ids){const s=statOf(m.ids());w=s.t?s.a/s.t*100:0;p=`${s.a} de ${s.t}${s.a?` · ${Math.round(s.c/s.a*100)} % bien`:''}`}
@@ -1027,7 +1071,7 @@ V.inicio=()=>{
     else p=`Nivel ${L.n} · ${S.xp} pts`;
     return `<a class="mod ${m.dark?'dark':''}" href="#${m.h}" style="--mc:${m.c};--mc2:${m.c2}"><span class="ic">${sv(IC[m.h],m.dark?'#2a1f00':'#fff')}</span><b>${m.n}</b><span>${m.d}</span>${m.h!=='progreso'?`<div class="bar"><i style="width:${w}%"></i></div>`:''}<small>${p}</small></a>`}).join('')}</div>
   <p class="small" style="margin-top:24px">Tu progreso se guarda solo en este navegador. Si cambiás de celular o de computadora, empezás de cero.</p>`;
-  $('#nom').oninput=e=>{S.nombre=e.target.value;save()};
+  $('#nom').oninput=e=>{S.nombre=e.target.value;save()};$('#cur').oninput=e=>{S.curso=e.target.value;save()};
   showInst();
 };
 function heroSVG(){
@@ -1057,6 +1101,7 @@ V.teoria=()=>{
   M.querySelectorAll('.teo-nav button').forEach(b=>b.onclick=()=>{teoI=+b.dataset.i;V.teoria();scrollTo(0,0)});
   const p=$('.prev'),n=$('.next');if(p)p.onclick=()=>{teoI--;V.teoria();scrollTo(0,0)};if(n)n.onclick=()=>{teoI++;V.teoria();scrollTo(0,0)};
   inlineMC($('#tq'),Object.assign({id:t.id},t.prueba));
+  $('.ficha h2').after(spkBtn(()=>[...M.querySelectorAll('.ficha > p, .ficha li, .ficha dt, .ficha dd, .ficha .ej, .ficha tr')].map(e=>({t:e.textContent,el:e}))));
 };
 function inlineMC(el,it){
   el.innerHTML=`<div class="qcard"><p class="qask">${esc(it.q)}</p><div class="opts">${it.opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}</div><div class="after"></div></div>`;
@@ -1140,6 +1185,7 @@ V.lectura=()=>{
     side.innerHTML=`<div class="panel"><h3>¿Qué querés marcar?</h3><div class="pal">${TOOLS.map(t=>`<button class="${t===lecTool?'on':''}" data-t="${esc(t)}">${esc(t)}</button>`).join('')}</div>
     <p class="small" style="margin:10px 0 0">Tocá una oración del texto para marcarla. Tocala otra vez para borrar la marca.</p></div>
     <div class="panel cntp"><h3>Tus marcas</h3><p class="small" id="cnt"></p><button class="btn lnk clr">Borrar todas mis marcas</button></div>`;
+    side.querySelector('.panel').append(spkBtn(()=>[...M.querySelectorAll('.texto > p, .texto > h5')].map(e=>({t:e.textContent,el:e}))));
     const cnt=()=>{const v=Object.values(mk);$('#cnt').textContent=v.length?Object.entries(v.reduce((o,x)=>(o[x]=(o[x]||0)+1,o),{})).map(([k,n])=>`${k}: ${n}`).join(' · '):'Todavía no marcaste nada.'};cnt();
     side.querySelectorAll('.pal button').forEach(b=>b.onclick=()=>{lecTool=b.dataset.t;side.querySelectorAll('.pal button').forEach(x=>x.classList.toggle('on',x===b))});
     M.querySelectorAll('.texto .s').forEach(s=>s.onclick=()=>{const id=s.dataset.id;if(mk[id]===lecTool){delete mk[id];s.removeAttribute('data-m')}else{mk[id]=lecTool;s.dataset.m=lecTool}save();cnt()});
@@ -1170,6 +1216,7 @@ V.lectura=()=>{
     lx.querySelectorAll('[data-tal]').forEach(b=>b.onclick=()=>{talId=b.dataset.tal;location.hash='taller'});
     side.innerHTML=`<div class="panel"><h3>Tus respuestas</h3><p class="small">Se guardan solas mientras escribís. Estas preguntas no tienen corrección automática: llevalas a clase.</p><button class="btn sec cp">Copiar todas</button><span class="small cpm"></span></div>`;
     $('.cp').onclick=()=>copy(L.preg.map((q,k)=>`${k+1}. ${q.q}\n${R[k]||''}`).join('\n\n'),$('.cpm'));
+    side.querySelector('.panel').append(entregaBtn('lectura',L.titulo,()=>L.preg.some((q,k)=>(R[k]||'').trim())?L.preg.map((q,k)=>`${k+1}. ${q.q}\n${R[k]||'(sin responder)'}`).join('\n\n'):'',()=>`Estructura: ${S.best['est-'+L.id]??'—'} % · Tesis: ${S.r['tes-'+L.id]===1?'bien':S.r['tes-'+L.id]===0?'mal':'—'}`));
   }
 };
 function confirmIn(btn,msg,yes){const s=document.createElement('span');s.className='confirm';s.innerHTML=`<span class="small">${esc(msg)}</span><button class="btn">Sí</button><button class="btn sec">No</button>`;btn.replaceWith(s);
@@ -1219,6 +1266,7 @@ V.taller=()=>{
   M.querySelectorAll('.paso textarea').forEach(t=>t.oninput=()=>{D[t.dataset.k]=t.value;save();upd()});
   M.querySelectorAll('.check input').forEach(c=>c.onchange=()=>{C[c.dataset.i]=c.checked;save()});
   $('.cp').onclick=()=>{const {h,body}=assemble();copy((h?h+'\n\n':'')+body,$('.cpm'))};
+  $('.cp').closest('.row').after(entregaBtn('taller',T.titulo,()=>{const {h,body}=assemble();return (h?h+'\n\n':'')+body},()=>{const a=analiza(assemble().body);return `${a.words} palabras · ${a.con.length} conectores · revisión: ${T.check.filter((c,i)=>C[i]).length}/${T.check.length}`}));
   const del=$('.del');del.onclick=()=>confirmIn(del,'¿Borrar todo lo escrito?',()=>{S.taller[T.id]={};S.checks[T.id]={};save();V.taller()});
   if(T.id==='opinion'&&D._tema)$('.lead').textContent='Tema elegido: '+D._tema;
   upd();
@@ -1273,7 +1321,9 @@ V.progreso=()=>{
   <h3 style="margin-top:30px">Mejores marcas</h3>${bests.length?`<div class="stats">${bests.map(([k,l])=>`<div class="simple"><span>${esc(l)}</span><b>${S.best[k]} %</b></div>`).join('')}</div>`:'<p class="empty">Todavía no completaste ninguna ronda.</p>'}
   <h3 style="margin-top:30px">Estructura de los textos</h3><div class="stats">${LECTURAS.filter(l=>S.best['est-'+l.id]!=null).map(l=>`<div class="simple"><span>${esc(l.titulo)}</span><b>${S.best['est-'+l.id]} %</b></div>`).join('')||'<p class="empty">Todavía no corregiste ninguna estructura.</p>'}</div>
   <div class="row" style="margin-top:30px"><button class="btn cp">Copiar resumen para el profe</button><span class="small cpm"></span><button class="btn lnk rst">Reiniciar todo mi progreso</button></div>`;
-  $('.cp').onclick=()=>copy(`Argumentar — ${S.nombre||'(sin nombre)'}\nNivel ${L.n} (${L.nom}) · ${S.xp} puntos · mejor racha ${S.rachaMax}\nFiguritas: ${Object.keys(S.album).length}/${ALB.length} · Jefes vencidos: ${Object.keys(S.jefes).length}/${JEFES.length} · Días seguidos: ${rachaDias()}\n`+rows.map(r=>`${r.m.n}: ${r.a}/${r.t} respondidas, ${r.c} bien`).join('\n')+'\n'+bests.map(([k,l])=>`${l}: ${S.best[k]} %`).join('\n'),$('.cpm'));
+  const resumenTxt=()=>`Argumentar — ${S.nombre||'(sin nombre)'}\nNivel ${L.n} (${L.nom}) · ${S.xp} puntos · mejor racha ${S.rachaMax}\nFiguritas: ${Object.keys(S.album).length}/${ALB.length} · Jefes vencidos: ${Object.keys(S.jefes).length}/${JEFES.length} · Días seguidos: ${rachaDias()}\n`+rows.map(r=>`${r.m.n}: ${r.a}/${r.t} respondidas, ${r.c} bien`).join('\n')+'\n'+bests.map(([k,l])=>`${l}: ${S.best[k]} %`).join('\n');
+  $('.cp').onclick=()=>copy(resumenTxt(),$('.cpm'));
+  $('.rst').closest('.row').after(entregaBtn('progreso','Resumen de progreso',()=>resumenTxt(),()=>`Nivel ${L.n} · ${S.xp} pts`));
   const r=$('.rst');r.onclick=()=>confirmIn(r,'Se borran puntos, marcas y textos. ¿Seguro?',()=>{const n=S.nombre;S=blank();S.nombre=n;save();meBar();V.progreso()});
 };
 
@@ -1534,6 +1584,105 @@ function pelea(el,J){
   draw();
 }
 
+/* ================= ENTREGAS, FICHAS PARA IMPRIMIR, ACCESIBILIDAD ================= */
+/* Dirección de la planilla del profe (Apps Script publicado como aplicación web). Vacía = entrega desactivada. */
+const ENTREGA_URL='';
+const ENTREGA_CLAVE='arzruni-argumentar';
+S.curso=S.curso||'';S.entregas=S.entregas||[];S.pref=S.pref||{z:1,facil:false};
+
+/* ---------- entregar al profe ---------- */
+function entregaBtn(tipo,titulo,getTexto,getResumen){
+  const w=document.createElement('div');w.className='entrega';
+  if(!ENTREGA_URL){w.innerHTML='<p class="small" style="margin:0">La entrega al profe todavía no está activada. Mientras tanto, copiá el texto y mandáselo.</p>';return w}
+  const prev=S.entregas.filter(e=>e.tipo===tipo&&e.titulo===titulo).slice(-1)[0];
+  w.innerHTML=`<button class="btn ent">${prev?'Volver a entregar':'Entregar al profe'}</button><span class="small em">${prev?'Última entrega: '+esc(prev.cuando):''}</span>`;
+  $('.ent',w).onclick=async()=>{
+    const msg=$('.em',w);
+    if(!S.nombre.trim()||!S.curso.trim()){msg.innerHTML='Antes de entregar, escribí tu <a href="#inicio">nombre y curso en el inicio</a>.';return}
+    const texto=getTexto();if(!texto.trim()){msg.textContent='No hay nada para entregar todavía.';return}
+    const b=$('.ent',w);b.disabled=true;b.textContent='Enviando…';
+    const resumen=getResumen?getResumen():'';
+    const body={clave:ENTREGA_CLAVE,nombre:S.nombre.trim(),curso:S.curso.trim(),tipo,titulo,texto,palabras:(texto.match(/\S+/g)||[]).length,resumen,puntos:S.xp,codigo:codigo(S.nombre,hoy(),S.xp)};
+    try{await fetch(ENTREGA_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)});
+      const cuando=new Intl.DateTimeFormat('es-AR',{dateStyle:'short',timeStyle:'short',timeZone:'America/Argentina/Buenos_Aires'}).format(new Date());
+      S.entregas.push({tipo,titulo,cuando});save();b.textContent='¡Entregado!';msg.textContent=' Enviado: '+cuando+' Si tu profe no lo recibe, copiá el texto y mandáselo.';
+      setTimeout(()=>{b.disabled=false;b.textContent='Volver a entregar'},4000);
+    }catch(e){b.disabled=false;b.textContent='Entregar al profe';msg.textContent=' No se pudo enviar (¿hay internet?). Probá de nuevo o copiá el texto.'}
+  };
+  return w;
+}
+
+/* ---------- accesibilidad ---------- */
+function aplicarPref(){const r=document.documentElement;r.style.setProperty('--z',S.pref.z||1);r.classList.toggle('facil',!!S.pref.facil)}
+function panelAcc(){
+  const d=document.createElement('div');d.className='modal';
+  const voz='speechSynthesis' in window;
+  d.innerHTML=`<div class="mbox" style="text-align:left"><p class="mt" style="text-align:center">Lectura</p>
+  <p style="font-weight:700;margin:0 0 6px">Tamaño de la letra</p><div class="seg" style="margin-bottom:16px">${[[1,'Normal'],[1.15,'Grande'],[1.3,'Muy grande']].map(([z,l])=>`<button data-z="${z}" class="${(S.pref.z||1)==z?'on':''}">${l}</button>`).join('')}</div>
+  <label class="check" style="display:flex;gap:10px;align-items:flex-start;cursor:pointer"><input type="checkbox" id="facil" ${S.pref.facil?'checked':''}><span><b>Lectura fácil</b><br><span class="small">Tipografía más clara, con más espacio entre letras y renglones.</span></span></label>
+  <p class="small" style="margin-top:14px">${voz?'En los textos, las fichas y las preguntas vas a ver un botón <b>Escuchar</b> para que te los lea en voz alta.':'Tu navegador no puede leer en voz alta.'}</p>
+  <div class="row" style="justify-content:center;margin-top:10px"><button class="btn cl">Listo</button></div></div>`;
+  document.body.appendChild(d);
+  d.querySelectorAll('[data-z]').forEach(b=>b.onclick=()=>{S.pref.z=+b.dataset.z;save();aplicarPref();d.querySelectorAll('[data-z]').forEach(x=>x.classList.toggle('on',x===b))});
+  $('#facil',d).onchange=e=>{S.pref.facil=e.target.checked;save();aplicarPref()};
+  $('.cl',d).onclick=()=>d.remove();d.onclick=e=>{if(e.target===d)d.remove()};
+}
+/* voz */
+let vozActiva=null;
+function vozES(){const vs=speechSynthesis.getVoices();return vs.find(v=>/es[-_]AR/i.test(v.lang))||vs.find(v=>/es[-_](419|US|MX)/i.test(v.lang))||vs.find(v=>/^es/i.test(v.lang))}
+function callar(){if('speechSynthesis' in window)speechSynthesis.cancel();if(vozActiva){vozActiva.btn&&(vozActiva.btn.innerHTML=SPK+' Escuchar');vozActiva.els?.forEach(e=>e.classList.remove('leyendo'))}vozActiva=null}
+const SPK='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>';
+function hablar(btn,partes){
+  if(!('speechSynthesis' in window))return;
+  if(vozActiva&&vozActiva.btn===btn){callar();return}
+  callar();const st={btn,els:partes.map(p=>p.el).filter(Boolean)};vozActiva=st;btn.innerHTML=SPK+' Detener';
+  let i=0;const v=vozES();
+  const next=()=>{if(vozActiva!==st)return;if(i>0)partes[i-1].el?.classList.remove('leyendo');if(i>=partes.length){callar();return}
+    const p=partes[i++];p.el?.classList.add('leyendo');p.el?.scrollIntoView({block:'center',behavior:'smooth'});
+    const u=new SpeechSynthesisUtterance(p.t);u.lang=v?.lang||'es-AR';if(v)u.voice=v;u.rate=.95;u.onend=next;u.onerror=next;speechSynthesis.speak(u)};
+  next();
+}
+function spkBtn(getPartes,cls=''){const b=document.createElement('button');b.className='btn sec spk '+cls;b.innerHTML=SPK+' Escuchar';b.onclick=()=>hablar(b,getPartes());if(!('speechSynthesis' in window))b.hidden=true;return b}
+addEventListener('hashchange',callar);
+
+/* ---------- página del profe: fichas para imprimir y verificador ---------- */
+let profeCfg={arg:8,fal:8,con:6,gen:4,titulo:'Práctica: el texto argumentativo',ver:0};
+V.profe=()=>{
+  if(!profeCfg.ver)profeCfg.ver=1000+Math.floor(Math.random()*9000);
+  const c=profeCfg;
+  M.innerHTML=`<div class="noprint">${head('profe','Herramientas para el docente: hojas de ejercicios para imprimir y verificación de los códigos del desafío del día.')}
+  <div class="tgrid"><div class="panel"><h3>Hoja de ejercicios</h3>
+  <label class="fl">Título<input id="pt" value="${esc(c.titulo)}"></label>
+  <div class="nums">${[['arg','Tipos de argumentos',ARGS.length],['fal','Falacias',FALACIAS.length],['con','Conectores',CONECTORES.length],['gen','Géneros periodísticos',GENEROS.length]].map(([k,l,mx])=>`<label class="fl">${l}<input type="number" min="0" max="${mx}" data-k="${k}" value="${c[k]}"></label>`).join('')}</div>
+  <label class="fl">Versión <span class="small">(el mismo número da la misma hoja; cambialo para otra combinación)</span><input type="number" id="pv" value="${c.ver}"></label>
+  <div class="row" style="margin-top:12px"><button class="btn imp">Imprimir hoja y clave</button><button class="btn sec otra">Otra versión</button></div>
+  <p class="small">Se imprime en blanco y negro, en A4: primero la hoja de los alumnos y, en una página aparte, la clave de corrección. Para guardar un PDF, elegí «Guardar como PDF» en el diálogo de impresión.</p></div>
+  <div class="panel"><h3>Verificar un código del desafío del día</h3><p class="small">Escribí el nombre tal como el alumno lo puso en la app, la fecha y el puntaje que dice tener.</p>
+  <label class="fl">Nombre<input id="vn"></label><div class="nums"><label class="fl">Fecha<input type="date" id="vd" value="${hoy()}"></label><label class="fl">Puntaje (0 a 5)<input type="number" id="vp" min="0" max="5" value="5"></label></div>
+  <div class="code" id="vc" style="margin-top:10px">—</div></div></div>
+  <h3 style="margin:28px 0 10px">Vista previa</h3></div><div id="hoja-imp"></div>`;
+  const upd=()=>{c.titulo=$('#pt').value;M.querySelectorAll('.nums input[data-k]').forEach(i=>c[i.dataset.k]=Math.max(0,Math.min(+i.max,+i.value||0)));c.ver=+$('#pv').value||1;$('#hoja-imp').innerHTML=hojaHTML(c)};
+  M.querySelectorAll('#pt,.nums input[data-k],#pv').forEach(i=>i.oninput=upd);
+  $('.otra').onclick=()=>{$('#pv').value=1000+Math.floor(Math.random()*9000);upd()};
+  $('.imp').onclick=()=>{try{window.print()}catch(e){}};
+  const vc=()=>{const n=$('#vn').value,p=$('#vp').value;$('#vc').textContent=n.trim()?`${p}/5 · ${codigo(n,$('#vd').value,+p)}`:'—'};
+  ['#vn','#vd','#vp'].forEach(s=>$(s).oninput=vc);
+  upd();
+};
+function hojaHTML(c){
+  const r=rng(hashS('hoja|'+c.ver));
+  const A=sshuf(ARGS,r).slice(0,c.arg),F=sshuf(FALACIAS,r).slice(0,c.fal),C=sshuf(CONECTORES,r).slice(0,c.con),Gn=sshuf(GENEROS,r).slice(0,c.gen);
+  let n=0,clave=[];const sec=[];
+  const L=(s)=>String.fromCharCode(97+s);
+  if(A.length){sec.push(`<section><h4>${sec.length+1}. Leé cada fragmento y escribí qué tipo de argumento es.</h4><p class="banco">Opciones: ${Object.values(ARG_TIPOS).join(' · ')}</p><ol class="it" start="${n+1}">${A.map(a=>{n++;clave.push([n,a.ok.map(k=>ARG_TIPOS[k]).join(' / ')]);return `<li><p>«${esc(a.t)}»</p><p class="linea">Tipo: ______________________________</p></li>`}).join('')}</ol></section>`)}
+  if(F.length){sec.push(`<section><h4>${sec.length+1}. ¿Qué falacia hay en cada argumento? Si te parece que no hay ninguna, escribí «no es falacia».</h4><p class="banco">Opciones: ${Object.values(FAL_TIPOS).join(' · ')}</p><ol class="it" start="${n+1}">${F.map(a=>{n++;clave.push([n,a.ok.map(k=>FAL_TIPOS[k]).join(' / ')]);return `<li><p>«${esc(a.t)}»</p><p class="linea">Falacia: ______________________________</p></li>`}).join('')}</ol></section>`)}
+  if(C.length){sec.push(`<section><h4>${sec.length+1}. Rodeá el conector que completa mejor cada oración.</h4><ol class="it" start="${n+1}">${C.map(a=>{n++;const o=sshuf(a.opts.map((t,k)=>({t,k})),r);clave.push([n,L(o.findIndex(x=>x.k===a.ok))+') '+a.opts[a.ok]]);return `<li><p>${esc(a.t).replace('___','__________')}</p><p class="ops">${o.map((x,i)=>`${L(i)}) ${esc(x.t)}`).join('&emsp;')}</p></li>`}).join('')}</ol></section>`)}
+  if(Gn.length){sec.push(`<section><h4>${sec.length+1}. ¿Qué tipo de texto es cada fragmento?</h4><p class="banco">Opciones: ${GENEROS_OPC.join(' · ')}</p><ol class="it" start="${n+1}">${Gn.map(a=>{n++;clave.push([n,a.ok]);return `<li><p>«${esc(a.t)}»</p><p class="linea">Tipo de texto: ______________________________</p></li>`}).join('')}</ol></section>`)}
+  return `<div class="impreso"><div class="pag"><header><div><b>${esc(c.titulo)}</b><span>Prácticas del Lenguaje · 3.er año · Colegio Armenio Arzruni</span></div><span class="vers">Versión ${c.ver}</span></header>
+  <p class="datos">Nombre y apellido: __________________________________&emsp;Curso: ________&emsp;Fecha: ____/____/______</p>${sec.join('')}</div>
+  <div class="pag clave"><header><div><b>Clave de corrección</b><span>${esc(c.titulo)}</span></div><span class="vers">Versión ${c.ver}</span></header><ol class="cl2">${clave.map(([i,t])=>`<li value="${i}">${esc(t)}</li>`).join('')}</ol><p class="small">Cuando figuran dos respuestas separadas por una barra, se aceptan ambas.</p></div></div>`;
+}
+
 /* instalación */
 let deferred=null;
 const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
@@ -1557,6 +1706,6 @@ function route(){
   rail.querySelectorAll('a').forEach(a=>{const on=a.dataset.h===v;a.classList.toggle('on',on);if(on)a.scrollIntoView({block:'nearest',inline:'nearest'})});
   meBar();V[v]();window.scrollTo(0,0);
 }
-addEventListener('hashchange',route);route();
+aplicarPref();addEventListener('hashchange',route);route();
 }
 </script></body></html>
