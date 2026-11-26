@@ -341,7 +341,7 @@ main{zoom:var(--z,1)}
 </style></head><body>
 <header class="top"><div class="topin"><a class="logo" href="#inicio"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M4 9q0-5 5-5h16q5 0 5 5v10q0 5-5 5H14l-6 5 1.5-5H9q-5 0-5-5z" fill="#fff"/><path d="M19 7l-5 9h4l-3 8 8-10h-4l3-7z" fill="#ffe14d" stroke="#1d1a2b" stroke-width="1.3" stroke-linejoin="round"/></svg><span>Argumentar</span></a><div class="me" id="me"></div></div><nav class="rail" id="rail" aria-label="Módulos"></nav></header>
 <main id="app"></main>
-<footer>Material de práctica basado en el cuadernillo «El texto argumentativo», Prácticas del Lenguaje, 3.er año, Colegio Armenio Arzruni. Uso exclusivo para la clase. · <a href="#profe">Para el profe</a></footer>
+<footer>Material de práctica basado en el cuadernillo «El texto argumentativo», Prácticas del Lenguaje, 3.er año, Colegio Armenio Arzruni. Uso exclusivo para la clase.</footer>
 <script>const ARG_TIPOS={cita:'Cita de autoridad',gen:'Generalización',con:'Concesión',ref:'Refutación',ej:'Ejemplificación',preg:'Pregunta retórica',ana:'Analogía',acu:'Acumulación',dat:'Datos y cifras'};
 
 const TEORIA=[
@@ -1832,43 +1832,7 @@ function hablar(btn,partes){
 function spkBtn(getPartes,cls=''){const b=document.createElement('button');b.className='btn sec spk '+cls;b.innerHTML=SPK+' Escuchar';b.onclick=()=>hablar(b,getPartes());if(!('speechSynthesis' in window))b.hidden=true;return b}
 addEventListener('hashchange',callar);
 
-/* ---------- página del profe: fichas para imprimir y verificador ---------- */
-let profeCfg={arg:8,fal:8,con:6,gen:4,titulo:'Práctica: el texto argumentativo',ver:0};
-V.profe=()=>{
-  if(!profeCfg.ver)profeCfg.ver=1000+Math.floor(Math.random()*9000);
-  const c=profeCfg;
-  M.innerHTML=`<div class="noprint">${head('profe','Herramientas para el docente: hojas de ejercicios para imprimir y verificación de los códigos del desafío del día.')}
-  <div class="tgrid"><div class="panel"><h3>Hoja de ejercicios</h3>
-  <label class="fl">Título<input id="pt" value="${esc(c.titulo)}"></label>
-  <div class="nums">${[['arg','Tipos de argumentos',ARGS.length],['fal','Falacias',FALACIAS.length],['con','Conectores',CONECTORES.length],['gen','Géneros periodísticos',GENEROS.length]].map(([k,l,mx])=>`<label class="fl">${l}<input type="number" min="0" max="${mx}" data-k="${k}" value="${c[k]}"></label>`).join('')}</div>
-  <label class="fl">Versión <span class="small">(el mismo número da la misma hoja; cambialo para otra combinación)</span><input type="number" id="pv" value="${c.ver}"></label>
-  <div class="row" style="margin-top:12px"><button class="btn imp">Imprimir hoja y clave</button><button class="btn sec otra">Otra versión</button></div>
-  <p class="small">Se imprime en blanco y negro, en A4: primero la hoja de los alumnos y, en una página aparte, la clave de corrección. Para guardar un PDF, elegí «Guardar como PDF» en el diálogo de impresión.</p></div>
-  <div class="panel"><h3>Verificar un código del desafío del día</h3><p class="small">Escribí el nombre tal como el alumno lo puso en la app, la fecha y el puntaje que dice tener.</p>
-  <label class="fl">Nombre<input id="vn"></label><div class="nums"><label class="fl">Fecha<input type="date" id="vd" value="${hoy()}"></label><label class="fl">Puntaje (0 a 5)<input type="number" id="vp" min="0" max="5" value="5"></label></div>
-  <div class="code" id="vc" style="margin-top:10px">—</div></div></div>
-  <h3 style="margin:28px 0 10px">Vista previa</h3></div><div id="hoja-imp"></div>`;
-  const upd=()=>{c.titulo=$('#pt').value;M.querySelectorAll('.nums input[data-k]').forEach(i=>c[i.dataset.k]=Math.max(0,Math.min(+i.max,+i.value||0)));c.ver=+$('#pv').value||1;$('#hoja-imp').innerHTML=hojaHTML(c)};
-  M.querySelectorAll('#pt,.nums input[data-k],#pv').forEach(i=>i.oninput=upd);
-  $('.otra').onclick=()=>{$('#pv').value=1000+Math.floor(Math.random()*9000);upd()};
-  $('.imp').onclick=()=>{try{window.print()}catch(e){}};
-  const vc=()=>{const n=$('#vn').value,p=$('#vp').value;$('#vc').textContent=n.trim()?`${p}/5 · ${codigo(n,$('#vd').value,+p)}`:'—'};
-  ['#vn','#vd','#vp'].forEach(s=>$(s).oninput=vc);
-  upd();
-};
-function hojaHTML(c){
-  const r=rng(hashS('hoja|'+c.ver));
-  const A=sshuf(ARGS,r).slice(0,c.arg),F=sshuf(FALACIAS,r).slice(0,c.fal),C=sshuf(CONECTORES,r).slice(0,c.con),Gn=sshuf(GENEROS,r).slice(0,c.gen);
-  let n=0,clave=[];const sec=[];
-  const L=(s)=>String.fromCharCode(97+s);
-  if(A.length){sec.push(`<section><h4>${sec.length+1}. Leé cada fragmento y escribí qué tipo de argumento es.</h4><p class="banco">Opciones: ${Object.values(ARG_TIPOS).join(' · ')}</p><ol class="it" start="${n+1}">${A.map(a=>{n++;clave.push([n,a.ok.map(k=>ARG_TIPOS[k]).join(' / ')]);return `<li><p>«${esc(a.t)}»</p><p class="linea">Tipo: ______________________________</p></li>`}).join('')}</ol></section>`)}
-  if(F.length){sec.push(`<section><h4>${sec.length+1}. ¿Qué falacia hay en cada argumento? Si te parece que no hay ninguna, escribí «no es falacia».</h4><p class="banco">Opciones: ${Object.values(FAL_TIPOS).join(' · ')}</p><ol class="it" start="${n+1}">${F.map(a=>{n++;clave.push([n,a.ok.map(k=>FAL_TIPOS[k]).join(' / ')]);return `<li><p>«${esc(a.t)}»</p><p class="linea">Falacia: ______________________________</p></li>`}).join('')}</ol></section>`)}
-  if(C.length){sec.push(`<section><h4>${sec.length+1}. Rodeá el conector que completa mejor cada oración.</h4><ol class="it" start="${n+1}">${C.map(a=>{n++;const o=sshuf(a.opts.map((t,k)=>({t,k})),r);clave.push([n,L(o.findIndex(x=>x.k===a.ok))+') '+a.opts[a.ok]]);return `<li><p>${esc(a.t).replace('___','__________')}</p><p class="ops">${o.map((x,i)=>`${L(i)}) ${esc(x.t)}`).join('&emsp;')}</p></li>`}).join('')}</ol></section>`)}
-  if(Gn.length){sec.push(`<section><h4>${sec.length+1}. ¿Qué tipo de texto es cada fragmento?</h4><p class="banco">Opciones: ${GENEROS_OPC.join(' · ')}</p><ol class="it" start="${n+1}">${Gn.map(a=>{n++;clave.push([n,a.ok]);return `<li><p>«${esc(a.t)}»</p><p class="linea">Tipo de texto: ______________________________</p></li>`}).join('')}</ol></section>`)}
-  return `<div class="impreso"><div class="pag"><header><div><b>${esc(c.titulo)}</b><span>Prácticas del Lenguaje · 3.er año · Colegio Armenio Arzruni</span></div><span class="vers">Versión ${c.ver}</span></header>
-  <p class="datos">Nombre y apellido: __________________________________&emsp;Curso: ________&emsp;Fecha: ____/____/______</p>${sec.join('')}</div>
-  <div class="pag clave"><header><div><b>Clave de corrección</b><span>${esc(c.titulo)}</span></div><span class="vers">Versión ${c.ver}</span></header><ol class="cl2">${clave.map(([i,t])=>`<li value="${i}">${esc(t)}</li>`).join('')}</ol><p class="small">Cuando figuran dos respuestas separadas por una barra, se aceptan ambas.</p></div></div>`;
-}
+
 
 /* instalación */
 let deferred=null;
